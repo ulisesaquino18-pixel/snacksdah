@@ -152,10 +152,6 @@ const INIT_C26=[
           ];
 
 function QuarterlyView({data,vw}){
-const GOLD="#D4A843",OK="#22C55E",DANGER="#EF4444",WARN="#F59E0B",BLUE="#2B5EA7",STEEL="#4F7896";
-const F=n=>"$"+Math.round(n).toLocaleString();
-const PC=n=>n.toFixed(1)+"%";
-const Bar=({v,mx,co})=>(<div style={{background:"#1E293B",borderRadius:3,height:6,width:"100%",overflow:"hidden"}}><div style={{width:`${Math.min((v/(mx||1))*100,100)}%`,height:"100%",background:co,borderRadius:3}}/></div>);
 const qMap={"Ene":1,"Feb":1,"Mar":1,"Abr":2,"May":2,"Jun":2,"Jul":3,"Ago":3,"Sep":3,"Oct":4,"Nov":4,"Dic":4};
 const qs={};
 data.forEach(d=>{const q="Q"+(qMap[d.m]||1);if(!qs[q])qs[q]={rev:0,co:0,np:0,cp:0,mq:0,as:0,months:0};qs[q].rev+=d.tr;qs[q].co+=d.co;qs[q].np+=d.np;qs[q].cp+=d.cp;qs[q].mq+=d.mq;qs[q].as+=d.as;qs[q].months++;});
@@ -213,7 +209,6 @@ return(
 );
 }
 function UmbralPanel({dynAd,umbral,overrides,setOverrides,editId,setEditId}){
-  const DANGER="#EF4444",WARN="#F59E0B",STEEL="#4F7896",OK="#22C55E",GOLD="#D4A843";
   const co=umbral==="vence"?DANGER:umbral==="30"?WARN:umbral==="60"?"#F97316":umbral==="90"?STEEL:OK;
   const filtered=dynAd.filter(a=>{
     if(umbral==="vence")return a.dl>=0&&a.dl<=1;
@@ -223,9 +218,6 @@ function UmbralPanel({dynAd,umbral,overrides,setOverrides,editId,setEditId}){
     if(umbral==="90+")return a.dl>90;
     return false;
   }).sort((a,b)=>a.dl-b.dl);
-  const th={padding:"5px 6px",textAlign:"left",fontSize:8,fontWeight:700,color:"#94A3B8"};
-  const tdr={padding:"5px 6px",textAlign:"right",fontSize:10,color:"#E2E8F0"};
-  const td={padding:"5px 6px",fontSize:10,color:"#E2E8F0"};
   return(
     <div style={{background:"#0F172A",borderRadius:6,padding:10,marginBottom:8,border:`1px solid ${co}44`}}>
       <div style={{fontSize:9,fontWeight:700,color:co,marginBottom:6}}>{filtered.length} clientes en este umbral</div>
