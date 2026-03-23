@@ -6,47 +6,15 @@ const NAVY="#1B2A45",BLUE="#2B5EA7",STEEL="#4F7896",GOLD="#D4A843",DARK="#0F1923
 const DEFAULT_D25=[{m:"Mar",mq:2,as:2,rM:12400,rA:4000,co:16400,cg:7723,op:0},{m:"Abr",mq:0,as:0,rM:0,rA:0,co:0,cg:0,op:0},{m:"May",mq:6,as:5,rM:37200,rA:10000,co:47200,cg:17460,op:3100},{m:"Jun",mq:8,as:2,rM:48800,rA:4000,co:52800,cg:23280,op:3100},{m:"Jul",mq:17,as:7,rM:105400,rA:14000,co:84200,cg:49470,op:3100},{m:"Ago",mq:14,as:8,rM:86800,rA:16000,co:92600,cg:40740,op:3100},{m:"Sep",mq:20,as:9,rM:124000,rA:18000,co:143700,cg:58200,op:7805},{m:"Oct",mq:20,as:6,rM:124000,rA:12000,co:146892,cg:58200,op:7805},{m:"Nov",mq:12,as:5,rM:74400,rA:10000,co:86000,cg:34920,op:7805},{m:"Dic",mq:25,as:9,rM:154400,rA:18000,co:148400,cg:72750,op:7805}];
 const DEFAULT_D26=[{m:"Ene",mq:19,as:12,rM:117800,rA:24000,co:105024,cg:55290,op:10407},{m:"Feb",mq:11,as:5,rM:68200,rA:10000,co:65375,cg:32010,op:10407},{m:"Mar",mq:10,as:4,rM:63800,rA:8200,co:26100,cg:29100,op:10407}];
 
-// Datos corregidos con el registro real de compras por grupo
-const tc=[{n:"Daniel Guzmán",p:2,mq:6,t:39200,f:"Jun 25",l:"Sep 25"},{n:"Víctor Fernández",p:2,mq:5,t:33000,f:"Sep 25",l:"Dic 25"},{n:"Elvis Meléndez",p:3,mq:5,t:33000,f:"Ago 25",l:"Ene 26"},{n:"Starkys Calvillo",p:2,mq:5,t:31000,f:"Ago 25",l:"Sep 25"},{n:"César David R.",p:2,mq:4,t:26800,f:"Sep 25",l:"Oct 25"},{n:"Ellen Camyl A.",p:3,mq:4,t:24800,f:"Ago 25",l:"Nov 25"},{n:"Vinicio Dominguez",p:4,mq:4,t:24800,f:"May 25",l:"Feb 26"},{n:"Puly A. García",p:3,mq:4,t:24800,f:"Ago 25",l:"Ene 26"},{n:"Natanelle Caram",p:3,mq:3,t:20600,f:"Ago 25",l:"Ene 26"},{n:"Ruth Mata",p:3,mq:3,t:20600,f:"May 25",l:"Nov 25"},{n:"Carlos y Miguel",p:2,mq:3,t:20600,f:"Sep 25",l:"Dic 25"},{n:"Beatriz Abreu",p:2,mq:2,t:14400,f:"Ago 25",l:"Mar 26"},{n:"Idalisa Ogando",p:2,mq:2,t:14400,f:"May 25",l:"Nov 25"},{n:"Lia Patricia H.",p:2,mq:2,t:14400,f:"Ago 25",l:"Dic 25"},{n:"Marcial Lora",p:2,mq:2,t:12000,f:"Dic 25",l:"Dic 25"}];
-const today=new Date(2026,2,17);const db=d=>Math.floor((today-new Date(d))/864e5);
-const cxc=[{n:"Denisse Ortega",a:654.25,d:"2025-11-17",o:"Al notificar grupo 7",y:25},{n:"Idalisa Ogando",a:1883.45,d:"2025-11-27",o:"Al notificar grupo 7",y:25},{n:"Larimar Meléndez",a:3100,d:"2025-12-05",o:"Al notificar grupo 7",y:25},{n:"Ruth Mata",a:1860,d:"2025-12-05",o:"Al notificar grupo 7",y:25},{n:"Augusto García",a:4320,d:"2025-12-05",o:"Al notificar llegada",y:25},{n:"Puly A. García",a:3200,d:"2025-12-11",o:"Grupo 7",y:25},{n:"Marcial Lora (1ra)",a:3000,d:"2025-12-13",o:"Al notificar",y:25},{n:"Lia Patricia H.",a:3055.35,d:"2025-12-22",o:"Al notificar",y:25},{n:"Jose Aníbal P.",a:2000,d:"2025-12-25",o:"Tiene link de pago",y:25},{n:"Marcial Lora (2da)",a:3000,d:"2025-12-26",o:"Al notificar",y:25},{n:"Albethy Colón",a:2200,d:"2025-12-30",o:"Al notificar",y:25},{n:"Juan Miguel Sosa",a:6200,d:"2026-01-09",o:"25% en 30 días + notificar",y:26},{n:"Cheylin Morillo",a:1500,d:"2026-01-10",o:"Al notificar llegada",y:26},{n:"Puly García (2da)",a:6200,d:"2026-01-12",o:"Al notificar llegada",y:26},{n:"Vinicio Dominguez",a:1078.80,d:"2026-01-22",o:"Al notificar llegada",y:26},{n:"María Almonte",a:3496.31,d:"2026-01-30",o:"Pagos parciales",y:26},{n:"Carol Hernández",a:2066,d:"2026-02-03",o:"20 de marzo y 30 de abril",y:26},{n:"Elvin Ramírez",a:8600,d:"2026-02-04",o:"Al notificar (3 máquinas)",y:26},{n:"Rocío (1ra compra)",a:958.67,d:"2026-02-05",o:"15 de marzo $2,700",y:26},{n:"Vinicio (2da compra)",a:5200,d:"2026-02-18",o:"Pendiente",y:26},{n:"Elvis Meléndez",a:2200.37,d:"2026-02-21",o:"Al notificar llegada",y:26},{n:"Rocío (2da compra)",a:3700,d:"2026-03-12",o:"Pendiente forma de pago",y:26},{n:"Rodrigo",a:8300,d:"2026-03-12",o:"Pagó $4,100 de $12,400",y:26},{n:"Lourdes Carmona",a:4200,d:"2026-03-16",o:"Paga el resto el 30 de abril",y:26},{n:"Jael Melina Valdez",a:4731.07,d:"2026-03-16",o:"Pendiente de validar",y:26}].map(c=>({...c,days:db(c.d),aging:db(c.d)>90?"90+":db(c.d)>60?"60-90":db(c.d)>30?"30-60":"0-30"}));
 
-
-// ===== REFERIDOS =====
-const DEFAULT_REFS=[{n:"Ignacio Dehenen",t:20,c:1,s:12,p:7},{n:"Yamel Mata",t:5,c:1,s:3,p:1},{n:"Natanelle Caram",t:5,c:0,s:3,p:2},{n:"Juan Miguel Sosa",t:3,c:1,s:2,p:0},{n:"Víctor Fernández",t:3,c:0,s:1,p:2},{n:"Vinicio Dominguez",t:2,c:1,s:0,p:1},{n:"Elvis Meléndez",t:2,c:0,s:2,p:0},{n:"César David",t:2,c:0,s:1,p:1},{n:"Ely Cruz",t:2,c:0,s:0,p:2},{n:"José Luis Abreu",t:2,c:0,s:0,p:2},{n:"Dalvin Toledo",t:1,c:1,s:0,p:0},{n:"Julio Alexander",t:1,c:1,s:0,p:0},{n:"Otros",t:8,c:0,s:3,p:5}];
-// totalRefs moved inside component
-
-// ===== GARANTÍAS Y ASESORÍAS =====
-const wd=[{n:"Dalvin Toledo",d:"2025-03-15",mq:2,g:2,dl:-4},{n:"Carlos Arroyo",d:"2025-03-15",mq:1,g:0,dl:-4},{n:"Franchesca Mena",d:"2025-05-03",mq:1,g:2,dl:45},{n:"Madelyn Sánchez",d:"2025-05-12",mq:1,g:2,dl:54},{n:"Samuel Garrido",d:"2025-05-23",mq:1,g:2,dl:65},{n:"Idalisa Ogando",d:"2025-05-23",mq:1,g:2,dl:65},{n:"Ruth Mata",d:"2025-05-20",mq:1,g:2,dl:62},{n:"Vinicio Dominguez",d:"2025-05-21",mq:1,g:2,dl:63},{n:"Dalvin Toledo",d:"2025-06-03",mq:2,g:2,dl:76},{n:"René Arbaje",d:"2025-06-04",mq:1,g:2,dl:77},{n:"Julio Arias",d:"2025-06-10",mq:1,g:2,dl:83},{n:"Casandra Heredia",d:"2025-06-14",mq:1,g:3,dl:87},{n:"Julio Alexander",d:"2025-06-14",mq:1,g:3,dl:87},{n:"Joan Castro",d:"2025-06-20",mq:2,g:3,dl:93},{n:"Daniel Guzmán",d:"2025-07-04",mq:4,g:3,dl:107},{n:"Cristopher Moscoso",d:"2025-07-16",mq:1,g:3,dl:119},{n:"Noella Portuondo",d:"2025-07-19",mq:1,g:3,dl:122},{n:"Juan Miguel Sosa",d:"2025-07-16",mq:3,g:3,dl:119},{n:"Ironelly De Los Santos",d:"2025-07-19",mq:1,g:3,dl:122},{n:"Jean Carlos Martínez",d:"2025-07-12",mq:1,g:3,dl:115},{n:"Chamil Marte",d:"2025-07-21",mq:1,g:3,dl:124},{n:"Ulises",d:"2025-07-21",mq:3,g:3,dl:124},{n:"Yeymy Bueno",d:"2025-07-24",mq:1,g:4,dl:127},{n:"Gabriel Ortíz",d:"2025-07-27",mq:1,g:4,dl:130},{n:"Darwin Anderson",d:"2025-08-07",mq:1,g:3,dl:141},{n:"Ellen Camyl",d:"2025-08-08",mq:1,g:3,dl:142},{n:"Elvis Meléndez",d:"2025-08-05",mq:3,g:4,dl:139},{n:"Ruth Mata",d:"2025-08-01",mq:1,g:4,dl:135},{n:"Lia Patricia",d:"2025-08-10",mq:1,g:4,dl:144},{n:"Starkys Calvillo",d:"2025-08-15",mq:1,g:4,dl:149},{n:"Beatriz Abreu",d:"2025-08-17",mq:1,g:4,dl:151},{n:"Jose Luis Abreu",d:"2025-08-17",mq:1,g:4,dl:151},{n:"Braulio Ynoa",d:"2025-08-25",mq:1,g:4,dl:159},{n:"Puly García",d:"2025-08-25",mq:1,g:4,dl:159},{n:"Natanelle Caram",d:"2025-08-25",mq:1,g:4,dl:159},{n:"Yakayra Toledo",d:"2025-08-25",mq:1,g:4,dl:159},{n:"Daniel Guzmán",d:"2025-09-02",mq:2,g:4,dl:167},{n:"Joan Genao",d:"2025-09-03",mq:1,g:4,dl:168},{n:"Sandra Alcala",d:"2025-09-07",mq:1,g:4,dl:172},{n:"Miguel Andujar",d:"2025-09-05",mq:3,g:4,dl:170},{n:"Luis Bayonet",d:"2025-09-08",mq:1,g:5,dl:173},{n:"Carlos y Miguel",d:"2025-09-08",mq:1,g:5,dl:173},{n:"César David",d:"2025-09-08",mq:1,g:5,dl:173},{n:"Starkys Calvillo",d:"2025-09-12",mq:4,g:5,dl:177},{n:"Wilner Sánchez",d:"2025-09-17",mq:1,g:5,dl:182},{n:"Ramón Miranda",d:"2025-09-18",mq:1,g:5,dl:183},{n:"Yoenny Santana",d:"2025-09-19",mq:1,g:5,dl:184},{n:"Saúl Luciano",d:"2025-09-20",mq:1,g:5,dl:185},{n:"Nirca De La Cruz",d:"2025-09-23",mq:1,g:5,dl:188},{n:"Jefersson Montilla",d:"2025-09-25",mq:1,g:5,dl:190},{n:"Robert Feliz",d:"2025-10-01",mq:1,g:5,dl:196},{n:"Eduard Santos",d:"2025-10-01",mq:2,g:5,dl:196},{n:"Víctor Fernández",d:"2025-10-03",mq:2,g:5,dl:198},{n:"Ángel Andujar",d:"2025-10-07",mq:1,g:5,dl:202},{n:"Ellen Camyl",d:"2025-10-09",mq:1,g:5,dl:204},{n:"Vinicio Dominguez",d:"2025-10-09",mq:1,g:5,dl:204},{n:"René Arbaje",d:"2025-10-12",mq:1,g:5,dl:207},{n:"Jose Rubio",d:"2025-10-11",mq:1,g:5,dl:206},{n:"Dubai/Alberto",d:"2025-10-15",mq:2,g:6,dl:210},{n:"Héctor Hernández",d:"2025-10-20",mq:1,g:6,dl:215},{n:"Elvis Meléndez",d:"2025-10-24",mq:1,g:6,dl:219},{n:"Ely Cruz",d:"2025-10-29",mq:1,g:6,dl:223},{n:"Alba Ironelly",d:"2025-10-30",mq:1,g:6,dl:223},{n:"Jean Pierre",d:"2025-10-31",mq:1,g:6,dl:223},{n:"César David",d:"2025-10-31",mq:3,g:6,dl:223},{n:"Katherine Gómez",d:"2025-11-10",mq:2,g:6,dl:236},{n:"Juan Isidro Valerio",d:"2025-11-14",mq:1,g:6,dl:240},{n:"Denisse Ortega",d:"2025-11-17",mq:1,g:9,dl:243},{n:"Ricky Fortuna",d:"2025-11-17",mq:1,g:6,dl:243},{n:"Iván Feliz",d:"2025-11-19",mq:1,g:6,dl:245},{n:"Ellen Camyl",d:"2025-11-20",mq:2,g:6,dl:246},{n:"Marcelle Puello",d:"2025-11-22",mq:1,g:6,dl:248},{n:"Idalisa Ogando",d:"2025-11-27",mq:1,g:7,dl:253},{n:"Ruth Mata",d:"2025-11-28",mq:1,g:7,dl:254},{n:"Marcos Pérez",d:"2025-11-29",mq:1,g:7,dl:254},{n:"Larimar Meléndez",d:"2025-12-04",mq:1,g:7,dl:260},{n:"Víctor Fernández",d:"2025-12-05",mq:3,g:6,dl:261},{n:"Augusto García",d:"2025-12-05",mq:2,g:7,dl:261},{n:"Miguel de la Cruz",d:"2025-12-10",mq:1,g:7,dl:266},{n:"Puly García",d:"2025-12-11",mq:1,g:7,dl:267},{n:"Marcial Lora",d:"2025-12-13",mq:1,g:7,dl:269},{n:"Enmanuel Fernández",d:"2025-12-15",mq:1,g:7,dl:271},{n:"Natanelle Caram",d:"2025-12-15",mq:1,g:7,dl:271},{n:"Carlos y Miguel",d:"2025-12-15",mq:2,g:7,dl:271},{n:"Karla Ballis",d:"2025-12-16",mq:1,g:7,dl:272},{n:"Luz María Feliz",d:"2025-12-17",mq:2,g:7,dl:273},{n:"Lia Patricia",d:"2025-12-22",mq:1,g:7,dl:278},{n:"Glenny Gómez",d:"2025-12-23",mq:1,g:7,dl:279},{n:"Fernando Sosa",d:"2025-12-23",mq:1,g:7,dl:279},{n:"Dionys Rodríguez",d:"2025-12-24",mq:1,g:7,dl:280},{n:"Jose Aníbal Peralta",d:"2025-12-25",mq:1,g:7,dl:281},{n:"Marcial Lora",d:"2025-12-26",mq:1,g:8,dl:282},{n:"Albethy Colón",d:"2025-12-30",mq:1,g:8,dl:284},{n:"Andrés de la Rosa",d:"2025-12-30",mq:1,g:8,dl:284},{n:"Mickel Sinisterra",d:"2025-12-30",mq:1,g:8,dl:284},{n:"Marcela Bermúdez",d:"2026-01-06",mq:1,g:8,dl:293},{n:"Salomón Contreras",d:"2026-01-09",mq:1,g:8,dl:296},{n:"Juan Miguel Sosa",d:"2026-01-09",mq:2,g:8,dl:296},{n:"Cheylin Morillo",d:"2026-01-10",mq:1,g:8,dl:297},{n:"Natanelle Caram",d:"2026-01-10",mq:1,g:8,dl:297},{n:"Puly García",d:"2026-01-12",mq:2,g:8,dl:299},{n:"Jabnia Pérez",d:"2026-01-13",mq:1,g:8,dl:300},{n:"Saulina Sánchez",d:"2026-01-14",mq:1,g:8,dl:301},{n:"Indhira Reyes",d:"2026-01-14",mq:1,g:8,dl:301},{n:"María Cecilia Pérez",d:"2026-01-20",mq:1,g:8,dl:307},{n:"Vinicio Dominguez",d:"2026-01-22",mq:1,g:8,dl:309},{n:"Jean Luis Raposo",d:"2026-01-23",mq:1,g:8,dl:310},{n:"Carolina Mejía",d:"2026-01-23",mq:1,g:8,dl:310},{n:"Elvis Meléndez",d:"2026-01-23",mq:1,g:8,dl:310},{n:"Jhomelger García",d:"2026-01-29",mq:1,g:9,dl:315},{n:"María Almonte",d:"2026-01-30",mq:1,g:9,dl:315},{n:"Perla Pichardo",d:"2026-01-31",mq:1,g:9,dl:315},{n:"Madelin Santana",d:"2026-02-02",mq:1,g:9,dl:320},{n:"Eric Guzmán",d:"2026-02-02",mq:1,g:9,dl:320},{n:"Carol Hernández",d:"2026-02-03",mq:1,g:9,dl:321},{n:"Elvin Ramírez",d:"2026-02-04",mq:3,g:9,dl:322},{n:"Rocío",d:"2026-02-05",mq:2,g:9,dl:323},{n:"Vinicio Dominguez",d:"2026-02-18",mq:1,g:9,dl:336},{n:"Emil Henríquez",d:"2026-02-24",mq:1,g:9,dl:342},{n:"Raquel Gómez",d:"2026-02-27",mq:1,g:9,dl:345},{n:"Ashley Quezada",d:"2026-03-08",mq:2,g:9,dl:354},{n:"Rocío",d:"2026-03-12",mq:1,g:9,dl:358},{n:"Rodrigo",d:"2026-03-12",mq:2,g:9,dl:358},{n:"Beatriz Abreu",d:"2026-03-13",mq:1,g:9,dl:359},{n:"Guillermo",d:"2026-03-13",mq:1,g:9,dl:359},{n:"Luis Carlos Fermín",d:"2026-03-13",mq:1,g:10,dl:359},{n:"Lourdes Carmona",d:"2026-03-16",mq:1,g:10,dl:362},{n:"Jael Melina Valdez",d:"2026-03-16",mq:1,g:10,dl:362}];
-const ad=[{n:"Iván Feliz",dl:0},{n:"Marcelle Puello",dl:3},{n:"Augusto García",dl:17},{n:"Miguel de la Cruz",dl:22},{n:"Karla Ballis",dl:28},{n:"Luz María Feliz",dl:29},{n:"Glenny Gómez",dl:35},{n:"Dionys Rodríguez",dl:36},{n:"Jose Aníbal Peralta",dl:37},{n:"Andrés de la Rosa",dl:40},{n:"Mickel Sinisterra",dl:40},{n:"Marcela Bermúdez",dl:48},{n:"Salomón Contreras",dl:51},{n:"Cheylin Morillo",dl:52},{n:"Jabnia Pérez",dl:55},{n:"Saulina Sánchez",dl:56},{n:"Indhira Reyes",dl:56},{n:"María Cecilia Pérez",dl:62},{n:"Jean Luis Raposo",dl:65},{n:"Carolina Mejía",dl:65},{n:"Jhomelger García",dl:70},{n:"María Almonte",dl:70},{n:"Perla Pichardo",dl:70},{n:"Madelin Santana",dl:75},{n:"Eric Guzmán",dl:75},{n:"Carol Hernández",dl:76},{n:"Elvin Ramírez",dl:77},{n:"Rocío",dl:78},{n:"Ashley Quezada",dl:111},{n:"Luis Carlos Fermín",dl:116},{n:"Lourdes Carmona",dl:119},{n:"Jael Melina Valdez",dl:119}];
-const wExp=wd.filter(w=>w.dl<0).length,wSoon=wd.filter(w=>w.dl>=0&&w.dl<=90).length,wOk=wd.filter(w=>w.dl>90).length;
-const aAct=ad.filter(a=>a.dl>=0).length,aExp=72-aAct;
-
-const sug=[
-{c:"Cobranza urgente",co:DANGER,t:"⚠ Rodrigo debe $8,300 de $12,400 (pagó $4,100 por 2 máquinas)",d:"Sigue siendo la deuda individual más alta. Ya pagó $4,100 pero faltan $8,300. Referido por Vinicio Dominguez. Contactar con link de pago Azul para cerrar el saldo."},
-
-{c:"Eficiencia de cobro",co:WARN,t:"La eficiencia de cobro cayó del 95% en 2025 al 70% en el primer trimestre de 2026",d:"11 de 24 transacciones del trimestre tienen saldo pendiente. La política de pagar al notificar llegada está dañando el flujo de caja. Endurecer: mínimo 75% al cerrar, el resto antes de entregar."},
-{c:"Riesgo operativo",co:DANGER,t:"6 máquinas del grupo 6 fueron entregadas pero no tienen cliente colocado",d:"Héctor, Ely, Alba, Juan Isidro, Iván y Marcelle recibieron su máquina el 14 de febrero y llevan 31 días sin ubicación. Si compraron asesoría, el servicio está pendiente de ejecutar."},
-{c:"Ventas en descenso",co:DANGER,t:"Las ventas cayeron: enero 18, febrero 11, marzo 9 máquinas",d:"Tendencia descendente fuerte. Es urgente activar el segundo setter, lanzar la campaña de recompra y preparar los anuncios de Meta."},
-{c:"Oportunidad de valor",co:OK,t:"Vinicio Dominguez: 4 compras (corregido), el cliente más fiel, pero tiene $6,278 pendientes",d:"Cobrar la deuda primero. Después convertirlo en embajador del programa de referidos."},
-{c:"Oportunidad de valor",co:OK,t:"La tasa de recompra está en 13% y puede llegar al 25%",d:"15 clientes recurrentes generan el 34% del revenue. Hay 106 que solo compraron una vez. Una secuencia de WhatsApp a los 60 días post-compra puede convertir 10 a 15 clientes más."},
-{c:"Sobre los costos",co:STEEL,t:"El costo landed por máquina es de $2,910 (RD$178,938 al tipo de cambio ~61.5)",d:"El 63% ($1,833) es el adelanto a fábrica al ordenar el container. El 37% restante ($1,077) se paga al arribo junto con aduanas y desaduanización. El CxP actual de ~RD$12M corresponde a estos saldos pendientes. Fuente: análisis de unit economics, septiembre 2025."},
-{c:"Colocación",co:WARN,t:"El 63% de las máquinas entregadas tiene cliente, el 37% aún no tiene ubicación",d:"De las 93 máquinas entregadas, 33 no tienen ubicación confirmada. Las 6 del grupo 6 son las más urgentes porque llevan un mes sin colocar."},
-{c:"Duplicados revisados",co:STEEL,t:"Se identificaron 9 pagos parciales en cobranza que no son ventas nuevas",d:"Al registrar cobros diferidos, cada abono aparece como línea separada. Esto puede inflar el total cobrado si se suma dos veces. Además, enero de 2026 incluye ~$10,500 en cobros de facturas de 2025."},
-{c:"Asesoría al alza",co:OK,t:"La tasa de asesoría subió del 42% en 2025 al 58% en el primer trimestre de 2026",d:"Cada asesoría son $2,000 de revenue sin costo de mercancía. El pitch actual funciona bien. Meta: mantener por encima del 60%."},
-{c:"Programa de referidos",co:GOLD,t:"56 referidos totales con 11% de tasa de cierre (6 cerrados)",d:"Ignacio Dehenen lidera con 20 referidos pero solo 5% de cierre. Vinicio y Juan Miguel tienen las mejores tasas (50% y 33%). Solo 3 de los 6 cierres generaron comisión (Saulina vía Juan Miguel, Rodrigo vía Vinicio, Emil vía Dalvin). Oportunidad: reactivar los 29 en seguimiento."},
-{c:"Capital atrapado",co:GOLD,t:"Las cuentas por cobrar suman $80,827 — el equivalente a unas 30 máquinas",d:"Recuperar al menos el 70% antes de abril libera capital para adelantar el próximo container sin tocar el fondo operativo mínimo."},
-];
 
 function compute(d){return d.map(x=>{const t=x.rM+x.rA,g=t-x.cg,n=g-x.op,cp=x.co-x.cg-x.op;return{...x,tr:t,gp:g,np:n,cp,ce:t>0?(x.co/t*100):0,mg:t>0?(n/t*100):0};});}
 const sumAll=a=>a.reduce((s,d)=>({mq:s.mq+d.mq,as:s.as+d.as,tr:s.tr+d.tr,co:s.co+d.co,cg:s.cg+d.cg,op:s.op+d.op,gp:s.gp+d.gp,np:s.np+d.np,cp:s.cp+d.cp}),{mq:0,as:0,tr:0,co:0,cg:0,op:0,gp:0,np:0,cp:0});
 const F=n=>`$${Math.round(n).toLocaleString()}`;const PC=n=>`${n.toFixed(1)}%`;
-const tcxc=cxc.reduce((a,c)=>a+c.a,0);const tc25=cxc.filter(c=>c.y===25).reduce((a,c)=>a+c.a,0);const tc26=cxc.filter(c=>c.y===26).reduce((a,c)=>a+c.a,0);
 const Bar=({v,mx,co})=>(<div style={{background:"#1E293B",borderRadius:3,height:6,width:"100%",overflow:"hidden"}}><div style={{width:`${Math.min((v/(mx||1))*100,100)}%`,height:"100%",background:co,borderRadius:3}}/></div>);
 const K=({l,v,s,co})=>(<div style={{background:"#1E293B",borderRadius:8,padding:"9px 11px",border:"1px solid #334155",flex:1,minWidth:105}}><div style={{fontSize:8,color:"#94A3B8",marginBottom:1}}>{l}</div><div style={{fontSize:16,fontWeight:800,color:co||"#fff"}}>{v}</div>{s&&<div style={{fontSize:8,color:"#64748B",marginTop:1}}>{s}</div>}</div>);
 const th={padding:"5px 6px",textAlign:"left",fontSize:8,fontWeight:700,color:"#94A3B8"};const thr={...th,textAlign:"right"};const td={padding:"5px 6px",fontSize:10,color:"#E2E8F0"};const tdc={...td,textAlign:"center"};const tdr={...td,textAlign:"right"};
 const Inf=({children,color})=>(<div style={{background:"#0F172A",borderRadius:6,padding:"10px 12px",border:`1px solid ${color||"#334155"}33`,marginTop:10}}>{children}</div>);
-const totalRecRev=tc.reduce((a,c)=>a+c.t,0);const avgLTV=totalRecRev/tc.length;const oneTimeLTV=6200+0.58*2000;const ltvRatio=avgLTV/oneTimeLTV;const reRate=tc.length/119*100;
 
 
 const INIT_C25=[
@@ -179,14 +147,131 @@ const INIT_C26=[
 {id:131,n:"Guillermo Mañon",ced:"008-0035006-8",tipo:"PF",mp:"Transferencia",fc:"2026-03-13",fe:"",closer:"Brianny",setter:"Brianny",grupo:"Solo",mq:1,as:1,g:9,vta:8200,pag:8200,mon:"USD",tasa:0,compra:"Maq. + Asesoria",emp:""},
 {id:132,n:"Luis Carlos Fermín",ced:"402-2252809-9",tipo:"PF",mp:"Transferencia",fc:"2026-03-13",fe:"",closer:"Ulises",setter:"Diana",grupo:"Solo",mq:1,as:1,g:10,vta:8200,pag:8200,mon:"USD",tasa:0,compra:"Maq. + Asesoria",emp:""},
 {id:133,n:"Lourdes Carmona",ced:"133-249965",tipo:"PF",mp:"Transferencia",fc:"2026-03-16",fe:"",closer:"Brianny",setter:"Diana",grupo:"Solo",mq:1,as:1,g:10,vta:8200,pag:4000,mon:"USD",tasa:0,compra:"Maq. + Asesoria",emp:""},
+{id:135,n:"Andrés Elías Reyes García",ced:"402-0059058-2",tipo:"PF",mp:"Transferencia",fc:"2026-03-17",fe:"",closer:"Ulises",setter:"Diana",grupo:"Solo",mq:1,as:1,g:10,vta:8200,pag:8200,mon:"USD",tasa:0,compra:"Maq. + Asesoria",emp:"",ref:"",cuenta:"",itbis:0,comAzul:0,factura:"",abonos:[]},
 {id:134,n:"Jael Melina Valdez",ced:"001-1869243-3",tipo:"PF",mp:"Transferencia",fc:"2026-03-16",fe:"",closer:"Brianny",setter:"Diana",grupo:"Solo",mq:1,as:1,g:10,vta:8200,pag:3468.93,mon:"USD",tasa:0,compra:"Maq. + Asesoria",emp:""},
           ];
 
+function QuarterlyView({data,vw}){
+const GOLD="#D4A843",OK="#22C55E",DANGER="#EF4444",WARN="#F59E0B",BLUE="#2B5EA7",STEEL="#4F7896";
+const F=n=>"$"+Math.round(n).toLocaleString();
+const PC=n=>n.toFixed(1)+"%";
+const Bar=({v,mx,co})=>(<div style={{background:"#1E293B",borderRadius:3,height:6,width:"100%",overflow:"hidden"}}><div style={{width:`${Math.min((v/(mx||1))*100,100)}%`,height:"100%",background:co,borderRadius:3}}/></div>);
+const qMap={"Ene":1,"Feb":1,"Mar":1,"Abr":2,"May":2,"Jun":2,"Jul":3,"Ago":3,"Sep":3,"Oct":4,"Nov":4,"Dic":4};
+const qs={};
+data.forEach(d=>{const q="Q"+(qMap[d.m]||1);if(!qs[q])qs[q]={rev:0,co:0,np:0,cp:0,mq:0,as:0,months:0};qs[q].rev+=d.tr;qs[q].co+=d.co;qs[q].np+=d.np;qs[q].cp+=d.cp;qs[q].mq+=d.mq;qs[q].as+=d.as;qs[q].months++;});
+const qArr=Object.entries(qs).sort((a,b)=>a[0].localeCompare(b[0]));
+const maxRev=Math.max(...qArr.map(([,q])=>q.rev),1);
+const delta=(a,b)=>(!b||b===0)?null:((a-b)/b*100);
+const DB=({val})=>{if(val===null||val===undefined)return <span style={{fontSize:8,color:"#475569"}}>—</span>;const up=val>=0;return <span style={{fontSize:8,fontWeight:700,color:up?OK:DANGER}}>{up?"▲":"▼"} {Math.abs(val).toFixed(0)}%</span>;};
+return(
+<div style={{background:"#1E293B",borderRadius:8,border:"1px solid #334155",padding:12,marginTop:8}}>
+<div style={{fontSize:10,fontWeight:700,color:GOLD,marginBottom:8}}>Vista trimestral</div>
+<div style={{display:"flex",gap:6,flexWrap:"wrap"}}>{qArr.map(([qName,q],idx)=>{
+const prev=idx>0?qArr[idx-1][1]:null;
+const profit=vw==="cash"?q.cp:q.np;
+const prevProfit=prev?(vw==="cash"?prev.cp:prev.np):null;
+const effQ=q.rev>0?(q.co/q.rev*100):0;
+return(
+<div key={qName} style={{flex:1,minWidth:110,background:"#0F172A",borderRadius:6,padding:10,border:"1px solid #334155"}}>
+<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
+<span style={{fontSize:13,fontWeight:800,color:"#fff"}}>{qName}</span>
+<span style={{fontSize:8,color:"#64748B"}}>{q.months}m</span>
+</div>
+<div style={{marginBottom:4}}>
+<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:2}}>
+<span style={{fontSize:8,color:"#94A3B8"}}>Facturado</span>
+<div style={{display:"flex",alignItems:"center",gap:4}}><DB val={delta(q.rev,prev?.rev)}/><span style={{fontSize:10,fontWeight:700,color:"#fff"}}>{F(q.rev)}</span></div>
+</div>
+<Bar v={q.rev} mx={maxRev} co={BLUE}/>
+</div>
+<div style={{marginBottom:4}}>
+<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:2}}>
+<span style={{fontSize:8,color:"#94A3B8"}}>Cobrado</span>
+<div style={{display:"flex",alignItems:"center",gap:4}}><DB val={delta(q.co,prev?.co)}/><span style={{fontSize:10,fontWeight:700,color:GOLD}}>{F(q.co)}</span></div>
+</div>
+<Bar v={q.co} mx={maxRev} co={GOLD}/>
+</div>
+<div style={{borderTop:"1px solid #334155",paddingTop:4,marginTop:3}}>
+<div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+<span style={{fontSize:8,color:"#94A3B8"}}>{vw==="cash"?"Caja":"Neta"}</span>
+<div style={{display:"flex",alignItems:"center",gap:4}}><DB val={delta(profit,prevProfit)}/><span style={{fontSize:10,fontWeight:700,color:profit>0?OK:DANGER}}>{F(profit)}</span></div>
+</div>
+<div style={{display:"flex",justifyContent:"space-between",marginTop:3}}>
+<span style={{fontSize:8,color:"#64748B"}}>Eficiencia</span>
+<span style={{fontSize:9,fontWeight:700,color:effQ>=90?OK:effQ>=70?WARN:DANGER}}>{PC(effQ)}</span>
+</div>
+<div style={{display:"flex",justifyContent:"space-between",marginTop:2}}>
+<span style={{fontSize:8,color:"#64748B"}}>Máquinas</span>
+<div style={{display:"flex",alignItems:"center",gap:4}}><DB val={delta(q.mq,prev?.mq)}/><span style={{fontSize:9,color:"#fff"}}>{q.mq}</span></div>
+</div>
+</div>
+</div>
+);
+})}
+</div>
+</div>
+);
+}
+function UmbralPanel({dynAd,umbral,overrides,setOverrides,editId,setEditId}){
+  const DANGER="#EF4444",WARN="#F59E0B",STEEL="#4F7896",OK="#22C55E",GOLD="#D4A843";
+  const co=umbral==="vence"?DANGER:umbral==="30"?WARN:umbral==="60"?"#F97316":umbral==="90"?STEEL:OK;
+  const filtered=dynAd.filter(a=>{
+    if(umbral==="vence")return a.dl>=0&&a.dl<=1;
+    if(umbral==="30")return a.dl>1&&a.dl<=30;
+    if(umbral==="60")return a.dl>30&&a.dl<=60;
+    if(umbral==="90")return a.dl>60&&a.dl<=90;
+    if(umbral==="90+")return a.dl>90;
+    return false;
+  }).sort((a,b)=>a.dl-b.dl);
+  const th={padding:"5px 6px",textAlign:"left",fontSize:8,fontWeight:700,color:"#94A3B8"};
+  const tdr={padding:"5px 6px",textAlign:"right",fontSize:10,color:"#E2E8F0"};
+  const td={padding:"5px 6px",fontSize:10,color:"#E2E8F0"};
+  return(
+    <div style={{background:"#0F172A",borderRadius:6,padding:10,marginBottom:8,border:`1px solid ${co}44`}}>
+      <div style={{fontSize:9,fontWeight:700,color:co,marginBottom:6}}>{filtered.length} clientes en este umbral</div>
+      <table style={{width:"100%",borderCollapse:"collapse",fontSize:9}}>
+        <thead><tr style={{background:"#1E293B"}}>
+          <th style={th}>Cliente</th><th style={th}>F. inicio</th>
+          <th style={{...th,textAlign:"right"}}>Vence</th><th style={{...th,textAlign:"right"}}>Días</th><th style={{...th,textAlign:"right"}}>Estado</th>
+        </tr></thead>
+        <tbody>{filtered.map((a,i)=>{
+          const exp=new Date(a.fechaInicio);exp.setMonth(exp.getMonth()+4);
+          const expStr=exp.toISOString().split("T")[0];
+          const isEditing=editId==="ases_"+a.k;
+          return(<tr key={i} style={{borderBottom:"1px solid #334155"}}>
+            <td style={{...td,fontWeight:600}}>{a.n}</td>
+            <td style={td}>{isEditing?(
+              <div style={{display:"flex",gap:3,alignItems:"center"}}>
+                <input type="date" defaultValue={a.fechaInicio} onBlur={async e=>{
+                  if(e.target.value){const upd={...overrides,[a.k]:e.target.value};setOverrides(upd);try{await saveData("asesoria-overrides",upd);}catch(err){}}
+                  setEditId(null);
+                }} style={{background:"#1E293B",border:`1px solid ${co}`,borderRadius:3,color:"#E2E8F0",fontSize:8,padding:"2px 4px"}}/>
+                <span style={{fontSize:7,color:"#64748B"}}>orig: {a.fc}</span>
+              </div>
+            ):(
+              <div style={{display:"flex",gap:4,alignItems:"center"}}>
+                <span style={{fontSize:9,color:overrides[a.k]?co:"#94A3B8"}}>{a.fechaInicio}{overrides[a.k]&&" ✎"}</span>
+                <button onClick={()=>setEditId("ases_"+a.k)} style={{background:"transparent",color:"#64748B",border:"1px solid #334155",borderRadius:2,fontSize:6,padding:"1px 4px",cursor:"pointer"}}>Editar</button>
+              </div>
+            )}</td>
+            <td style={{...tdr,fontSize:8,color:"#94A3B8"}}>{expStr}</td>
+            <td style={{...tdr,fontWeight:700,color:co}}>{a.dl===0?"Hoy":a.dl===1?"Mañana":`${a.dl}d`}</td>
+            <td style={tdr}><span style={{fontSize:8,padding:"2px 5px",borderRadius:3,background:`${co}22`,color:co,fontWeight:700}}>{a.dl<=1?"Vence hoy":a.dl<=30?"Urgente":a.dl<=60?"Próxima":a.dl<=90?"En curso":"Holgada"}</span></td>
+          </tr>);
+        })}</tbody>
+      </table>
+    </div>
+  );
+}
+
+
 export default function Dashboard(){
-  const[tab,setTab]=useState("2026");const[vw,setVw]=useState("accrual");
+  const[role,setRole]=useState(null);const[loginPass,setLoginPass]=useState("");
+  const[tab,setTab]=useState("Registro de Ventas");const[vw,setVw]=useState("accrual");
   const[fGrupo,setFGrupo]=useState("all");const[fTipo,setFTipo]=useState("all");const[fEmp,setFEmp]=useState("all");const[fDesde,setFDesde]=useState("");const[fHasta,setFHasta]=useState("");
   const[showForm,setShowForm]=useState(false);
   const[loading,setLoading]=useState(true);
+  const[tasa,setTasa]=useState(61.5);const[tasaAuto,setTasaAuto]=useState(null);const[tasaDate,setTasaDate]=useState("");
 
   // === DEFAULT DATA (used when storage is empty) ===
   const defaultClients=[...INIT_C25,...INIT_C26];
@@ -257,9 +342,9 @@ export default function Dashboard(){
   useEffect(()=>{
     const load=async()=>{
       try{
-        const[cRes,gRes,qRes,d25Res,d26Res,refRes]=await Promise.all([
+        const[cRes,gRes,qRes,d25Res,d26Res,refRes,tasaRes]=await Promise.all([
           loadData("clients"),loadData("gastos"),loadData("cuentas"),
-          loadData("d25"),loadData("d26"),loadData("refs"),
+          loadData("d25"),loadData("d26"),loadData("refs"),loadData("tasa"),
         ]);
         if(cRes&&cRes.length>0)setClients(cRes);
         if(gRes&&gRes.length>0)setGastos(gRes);
@@ -267,6 +352,8 @@ export default function Dashboard(){
         if(d25Res&&d25Res.length>0)setD25State(d25Res);
         if(d26Res&&d26Res.length>0)setD26State(d26Res);
         if(refRes&&refRes.length>0)setRefsState(refRes);
+        if(tasaRes&&typeof tasaRes==="number")setTasa(tasaRes);
+        if(aOvRes)setAsesoriaOverrides(aOvRes);;
       }catch(e){console.log("Supabase load:",e);}
       setLoading(false);
     };
@@ -284,38 +371,96 @@ export default function Dashboard(){
           saveData("clients",clients),saveData("gastos",gastos),
           saveData("cuentas",cuentasState),saveData("d25",d25State),
           saveData("d26",d26State),saveData("refs",refsState),
+          saveData("asesoria-overrides",asesoriaOverrides),
         ]);
       }catch(e){console.log("Supabase save:",e);}
     },1000);
-  },[clients,gastos,cuentasState,d25State,d26State,refsState,loading]);
+  },[clients,gastos,cuentasState,d25State,d26State,refsState,tasa,loading]);
 
-  const emptyC={n:"",ced:"",tipo:"PF",mp:"Transferencia",fc:"",fe:"",closer:"Brianny",setter:"",grupo:"Solo",mq:1,as:0,g:10,vta:6200,pag:0,mon:"USD",tasa:0,compra:"Maquina",emp:""};
+  const emptyC={n:"",ced:"",tipo:"PF",mp:"Transferencia",fc:"",fe:"",closer:"Brianny",setter:"",grupo:"Solo",mq:1,as:0,g:10,vta:6200,pag:0,mon:"USD",tasa:0,compra:"Maquina",emp:"",ref:"",cuenta:"",itbis:0,comAzul:0,factura:""};
   const[nc,setNc]=useState(emptyC);const[formErr,setFormErr]=useState("");const[editId,setEditId]=useState(null);
+  const[asesoriaOverrides,setAsesoriaOverrides]=useState({});
+  const[garantiaUmbral,setGarantiaUmbral]=useState(null);
+  const[comPagadas,setComPagadas]=useState({});
+  const[abonoMp,setAbonoMp]=useState("Transferencia");
+  const[abonoCuenta,setAbonoCuenta]=useState("Popular BIZ DOP");
   const[showGastoForm,setShowGastoForm]=useState(false);
   const[newGasto,setNewGasto]=useState({cat:"Operativo",concepto:"",monto:0,mes:"2026-03",rec:false});
   const[editGastoId,setEditGastoId]=useState(null);const[editCuentaId,setEditCuentaId]=useState(null);
 
   // Reset to defaults (clears storage)
-  const resetAll=async()=>{if(!confirm("¿Restaurar todos los datos a los valores originales? Se perderán todas las ediciones guardadas."))return;setClients(defaultClients);setGastos(defaultGastos);setCuentasState(defaultCuentas);setD25State(DEFAULT_D25);setD26State(DEFAULT_D26);setRefsState(DEFAULT_REFS);try{await resetAllData({clients:defaultClients,gastos:defaultGastos,cuentas:defaultCuentas,d25:DEFAULT_D25,d26:DEFAULT_D26,refs:DEFAULT_REFS});alert("Datos restaurados correctamente.");}catch(e){console.log(e);}};
+  const resetAll=async()=>{if(!confirm("¿Restaurar todos los datos a los valores originales? Se perderán todas las ediciones guardadas."))return;setClients(defaultClients);setGastos(defaultGastos);setCuentasState(defaultCuentas);setD25State(DEFAULT_D25);setD26State(DEFAULT_D26);setRefsState(DEFAULT_REFS);setTasa(61.5);try{await resetAllData({clients:defaultClients,gastos:defaultGastos,cuentas:defaultCuentas,d25:DEFAULT_D25,d26:DEFAULT_D26,refs:DEFAULT_REFS,tasa:61.5});alert("Datos restaurados correctamente.");}catch(e){console.log(e);}};
+
+  // Role-based tab access
+  const adminTabs=["E.R. 2025","E.R. 2026","Registro de Ventas","Gastos","Cobranza","LTV","Referidos","Garantías","Money Tracker","Guía"];
+  const assistTabs=["Registro de Ventas","Cobranza","Referidos","Garantías","Guía"];
+  const visibleTabs=role==="admin"?adminTabs:assistTabs;
+
+  // Login screen
+  if(!role)return(
+    <div style={{background:DARK,minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center"}}>
+      <div style={{background:"#1E293B",borderRadius:12,padding:32,border:`1px solid ${GOLD}44`,minWidth:300,textAlign:"center"}}>
+        <div style={{fontSize:8,letterSpacing:3,color:BLUE,fontWeight:700,marginBottom:4}}>SNACKS DEPOT®</div>
+        <div style={{fontSize:16,fontWeight:800,color:"#fff",marginBottom:20}}>Dashboard</div>
+        <div style={{display:"flex",flexDirection:"column",gap:8}}>
+          <button onClick={()=>setRole("admin")} style={{background:BLUE,color:"#fff",border:"none",borderRadius:6,padding:"10px 20px",fontSize:12,fontWeight:700,cursor:"pointer"}}>Entrar como Admin</button>
+          <button onClick={()=>{setRole("asistente");setTab("Registro de Ventas");}} style={{background:STEEL,color:"#fff",border:"none",borderRadius:6,padding:"10px 20px",fontSize:12,fontWeight:700,cursor:"pointer"}}>Entrar como Asistente</button>
+        </div>
+        <div style={{fontSize:8,color:"#475569",marginTop:12}}>Admin: acceso completo · Asistente: registro, cobros, referidos, garantías</div>
+      </div>
+    </div>
+  );
+
+  // Auto-fetch USD/DOP rate
+  useEffect(()=>{
+    const fetchTasa=async()=>{
+      try{
+        const r=await fetch("https://open.er-api.com/v6/latest/USD");
+        const d=await r.json();
+        if(d&&d.rates&&d.rates.DOP){setTasaAuto(d.rates.DOP);setTasaDate(new Date().toLocaleDateString("es-DO"));}
+      }catch(e){console.log("Tasa fetch error:",e);}
+    };
+    if(!loading)fetchTasa();
+  },[loading]);
 
   if(loading)return(<div style={{background:DARK,minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center"}}><div style={{color:GOLD,fontSize:14,fontWeight:700}}>Cargando datos guardados...</div></div>);
 
+  // Retroactive: compute itbis/comAzul for existing records missing them
+  const clientsRetro=clients.map(c=>{
+    const itbis=c.itbis||((c.tipo==="Empresa"||c.mp==="Link Azul")?Math.round(c.vta*0.18*100)/100:0);
+    const comAzul=c.comAzul||(c.mp==="Link Azul"?Math.round(c.pag*0.0395*100)/100:0);
+    const factura=c.factura||(c.tipo==="Empresa"?"B01":(c.mp==="Link Azul"?"B02":""));
+    return {...c,itbis,comAzul,factura,cuenta:c.cuenta||""};
+  });
+
+  // Widgets: total ITBIS and total comisión Azul
+  const totalITBIS=clientsRetro.reduce((a,c)=>a+c.itbis,0);
+  const totalComAzul=clientsRetro.reduce((a,c)=>a+c.comAzul,0);
+
   const totalRefs=refsState.reduce((a,r)=>a+r.t,0);const refsCerrados=refsState.reduce((a,r)=>a+r.c,0);const refsSeguimiento=refsState.reduce((a,r)=>a+r.s,0);const refsPerdidos=refsState.reduce((a,r)=>a+r.p,0);
+  // Dynamic referidos from clients with ref field
+  const dynRefMap={};clientsRetro.filter(c=>c.ref&&c.ref.trim()).forEach(c=>{const r=c.ref.trim();if(!dynRefMap[r])dynRefMap[r]={n:r,t:0,c:1,s:0,p:0,rev:0,mq:0};else{dynRefMap[r].c++;} dynRefMap[r].t++;dynRefMap[r].rev+=c.vta;dynRefMap[r].mq+=c.mq;});
+  const dynRefList=Object.values(dynRefMap).sort((a,b)=>b.t-a.t);
+  const dynRefTotal=dynRefList.reduce((a,r)=>a+r.t,0);const dynRefCerrados=dynRefList.reduce((a,r)=>a+r.c,0);
   // Dynamic OPEX from gastos for 2026
   const opexByMonth26={"Ene":0,"Feb":0,"Mar":0,"Abr":0,"May":0,"Jun":0,"Jul":0,"Ago":0,"Sep":0,"Oct":0,"Nov":0,"Dic":0};
   const mesMap26={"2026-01":"Ene","2026-02":"Feb","2026-03":"Mar","2026-04":"Abr","2026-05":"May","2026-06":"Jun","2026-07":"Jul","2026-08":"Ago","2026-09":"Sep","2026-10":"Oct","2026-11":"Nov","2026-12":"Dic"};
   const mesMapRev={"01":"Ene","02":"Feb","03":"Mar","04":"Abr","05":"May","06":"Jun","07":"Jul","08":"Ago","09":"Sep","10":"Oct","11":"Nov","12":"Dic"};
   gastos.forEach(g=>{const m=mesMap26[g.mes];if(m)opexByMonth26[m]+=g.monto;});
-  const tc26g=61.5;
+  const tc26g=tasa;
   // Delta from NEW clients only (id>134 = added via form)
   const newSales26={"Ene":{mq:0,as:0,rM:0,rA:0,co:0},"Feb":{mq:0,as:0,rM:0,rA:0,co:0},"Mar":{mq:0,as:0,rM:0,rA:0,co:0},"Abr":{mq:0,as:0,rM:0,rA:0,co:0},"May":{mq:0,as:0,rM:0,rA:0,co:0},"Jun":{mq:0,as:0,rM:0,rA:0,co:0},"Jul":{mq:0,as:0,rM:0,rA:0,co:0},"Ago":{mq:0,as:0,rM:0,rA:0,co:0},"Sep":{mq:0,as:0,rM:0,rA:0,co:0},"Oct":{mq:0,as:0,rM:0,rA:0,co:0},"Nov":{mq:0,as:0,rM:0,rA:0,co:0},"Dic":{mq:0,as:0,rM:0,rA:0,co:0}};
-  clients.filter(c=>c.id>134&&c.fc>="2026").forEach(c=>{const mm=c.fc.slice(5,7);const mes=mesMapRev[mm];if(mes&&newSales26[mes]){newSales26[mes].mq+=c.mq;newSales26[mes].as+=c.as;newSales26[mes].rM+=c.mq*6200;newSales26[mes].rA+=c.as*2000;newSales26[mes].co+=c.pag;}});
+  clientsRetro.filter(c=>c.id>134&&c.fc>="2026").forEach(c=>{const mm=c.fc.slice(5,7);const mes=mesMapRev[mm];if(mes&&newSales26[mes]){newSales26[mes].mq+=c.mq;newSales26[mes].as+=c.as;newSales26[mes].rM+=c.mq*6200;newSales26[mes].rA+=c.as*2000;newSales26[mes].co+=c.pag;}});
   // Build d26dyn: base d26State + delta from new registrations + new months
   const d26months=["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
   const d26dyn=d26months.filter(m=>{const base=d26State.find(r=>r.m===m);const ns=newSales26[m];return base||ns.mq>0;}).map(m=>{const base=d26State.find(r=>r.m===m)||{m,mq:0,as:0,rM:0,rA:0,co:0,cg:0,op:0};const ns=newSales26[m];return{m,mq:base.mq+ns.mq,as:base.as+ns.as,rM:base.rM+ns.rM,rA:base.rA+ns.rA,co:base.co+ns.co,cg:(base.mq+ns.mq)*2910,op:Math.round((opexByMonth26[m]||0)/tc26g)};});
 
+  // ITBIS and Azul deductions for 2026
+  const itbis26=clientsRetro.filter(c=>c.fc>="2026"&&c.itbis>0).reduce((a,c)=>a+c.itbis,0);
+  const azul26=clientsRetro.filter(c=>c.fc>="2026"&&c.comAzul>0).reduce((a,c)=>a+c.comAzul,0);
+
   // Gastos computations (for Gastos tab)
-  const gastoTC=61.5;
+  const gastoTC=tasa;
   const gastoTotalDOP=gastos.reduce((a,g)=>a+g.monto,0);
   const gastoTotalUSD=Math.round(gastoTotalDOP/gastoTC);
   const gastoByMes={};gastos.forEach(g=>{if(!gastoByMes[g.mes])gastoByMes[g.mes]=0;gastoByMes[g.mes]+=g.monto;});
@@ -325,16 +470,16 @@ export default function Dashboard(){
   const gastoPromedioMes=gastoMeses.length>0?gastoTotalDOP/gastoMeses.length:0;
 
   // Posición actual computations
-  const posTc2=61.5;const posFD=n=>`RD$${Math.round(n).toLocaleString()}`;const posFU=n=>`$${Math.round(n).toLocaleString()}`;
+  const posTc2=tasa;const posFD=n=>`RD$${Math.round(n).toLocaleString()}`;const posFU=n=>`$${Math.round(n).toLocaleString()}`;
   const posCuentas=cuentasState.map(c=>({...c}));
-  const posDynCxcTotal=clients.reduce((a,c)=>a+(c.vta-c.pag>0?c.vta-c.pag:0),0);
+  const posDynCxcTotal=clientsRetro.reduce((a,c)=>a+(c.vta-c.pag>0?c.vta-c.pag:0),0);
   const posCxcDOP=posDynCxcTotal*posTc2;
   const posCxcIdx=posCuentas.findIndex(c=>c.dynamic);if(posCxcIdx>=0)posCuentas[posCxcIdx]={...posCuentas[posCxcIdx],v:posCxcDOP};
   const posTotalDOP=posCuentas.reduce((a,c)=>a+c.v,0);
   const posTotalUSD=Math.round(posTotalDOP/posTc2);
   const posCleanCash=posTotalDOP-posCxcDOP-posCuentas.filter(c=>["Cash físico","Otros activos","Refund pendiente"].includes(c.n)).reduce((a,c)=>a+c.v,0);
   const posCleanUSD=Math.round(posCleanCash/posTc2);
-  const posInvBase=39;const posNewMaq=clients.filter(c=>c.id>134).reduce((a,c)=>a+c.mq,0);const posInvMaq=Math.max(0,posInvBase-posNewMaq);const posNewAses=clients.filter(c=>c.id>134).reduce((a,c)=>a+c.as,0);const posInvAses=Math.max(0,Math.round(posInvMaq*0.5));
+  const posInvBase=39;const posNewMaq=clientsRetro.filter(c=>c.id>134).reduce((a,c)=>a+c.mq,0);const posInvMaq=Math.max(0,posInvBase-posNewMaq);const posNewAses=clients.filter(c=>c.id>134).reduce((a,c)=>a+c.as,0);const posInvAses=Math.max(0,Math.round(posInvMaq*0.5));
   const posRevInv=(posInvMaq*6200+posInvAses*2000)*posTc2;
   const posCxpContainer=12000000;const posOpex3m=gastoTotalDOP;
   const posRevNeto=posRevInv-posCxpContainer-posOpex3m;
@@ -344,7 +489,7 @@ export default function Dashboard(){
   const posHoyUSD=posCleanUSD;// Real cash position today
   const netPerMaq=3898;// Net profit per machine all-in
   const opexMoUSD=Math.round(gastoPromedioMes/tc26g);// Monthly OPEX from Gastos tab
-  const cxcRecoverUSD=Math.round(posDynCxcTotal);// CxC to recover
+  const cxcRecoverUSD=Math.round(posDynCxcTotal);// CxC to recover in May// CxC to recover
   const cxpPayUSD=195000;// Container obligation in May
   const ramp=[{m:"HOY",maq:0,note:"Cash en cuentas",adj:0},{m:"MAR",maq:15,note:"47 pagadas → COGS $0",adj:0},{m:"ABR",maq:16,note:"COGS $0 (inventario)",adj:0},{m:"MAY",maq:17,note:"Cobra CXC, paga container",adj:cxcRecoverUSD-cxpPayUSD},{m:"JUN",maq:18,note:"Setter 2 + ads",adj:0},{m:"JUL",maq:18,note:"2 containers",adj:0},{m:"AGO",maq:19,note:"Recompra + referidos",adj:0},{m:"SEP",maq:20,note:"Velocidad crucero",adj:0},{m:"OCT",maq:20,note:"Q4 estacional",adj:0},{m:"NOV",maq:21,note:"MILLÓN",adj:0}];
   const posMonths=ramp.map((r,i)=>{if(i===0)return{...r,net:0,bal:posHoyUSD};const prev=ramp.slice(0,i).reduce((a,x,j)=>{if(j===0)return posHoyUSD;return a+(ramp[j].maq*netPerMaq)+ramp[j].adj;},0);const net=(r.maq*netPerMaq)+r.adj;const bal=i===1?posHoyUSD+net:0;return{...r,net,bal:0};});
@@ -355,7 +500,7 @@ export default function Dashboard(){
   const posCatTotals=posCats.map(cat=>({cat,total:posCuentas.filter(c=>c.cat===cat).reduce((a,c)=>a+c.v,0)}));
 
   // Registro de Ventas computations
-  const regAll=clients;
+  const regAll=clientsRetro;
   const regNameCount={};regAll.forEach(c=>{const k=c.ced||c.n;regNameCount[k]=(regNameCount[k]||0)+1;});
   const regIsRec=(c)=>{const k=c.ced||c.n;return regNameCount[k]>1;};
   const regInRange=(c)=>{if(fDesde&&c.fc<fDesde)return false;if(fHasta&&c.fc>fHasta)return false;return true;};
@@ -375,55 +520,62 @@ export default function Dashboard(){
   const regComSetting=(regDianaAses.reduce((a,c)=>a+c.as*2000*0.05,0))+(regDianaMaqMarzo.length*50);
   const regGroups=[...new Set(regAll.map(c=>c.g))].sort((a,b)=>a-b);
   const regBdCalc=(ds)=>{if(!ds)return null;const d=new Date(ds);const now=new Date(2026,2,20);let ct=0;const cur=new Date(d);while(cur<now){cur.setDate(cur.getDate()+1);if(cur.getDay()!==0&&cur.getDay()!==6)ct++;}return ct;};
-  const data=compute(tab==="2025"?d25State:d26dyn);const tot=sumAll(data);
+  const data=compute(tab==="E.R. 2025"?d25State:d26dyn);const tot=sumAll(data);
   const ce=tot.tr>0?(tot.co/tot.tr*100):0;const am=tot.tr>0?(tot.np/tot.tr*100):0;const cpm=tot.co>0?(tot.cp/tot.co*100):0;
   // Derive CxC dynamically from clients state
-  const dynCxc=clients.filter(c=>c.vta-c.pag>0).map(c=>{const adeudado=c.vta-c.pag;const daysAgo=Math.floor((new Date(2026,2,20)-new Date(c.fc))/864e5);return{n:c.n,a:adeudado,d:c.fc,o:c.mp==="Link Azul"?"Link de pago":"Al notificar",y:c.fc<"2026"?25:26,days:daysAgo,aging:daysAgo>90?"90+":daysAgo>60?"60-90":daysAgo>30?"30-60":"0-30"};});
+  const dynCxc=clientsRetro.filter(c=>c.vta-c.pag>0).map(c=>{const adeudado=c.vta-c.pag;const daysAgo=Math.floor((new Date(2026,2,20)-new Date(c.fc))/864e5);return{n:c.n,a:adeudado,d:c.fc,o:c.mp==="Link Azul"?"Link de pago":"Al notificar",y:c.fc<"2026"?25:26,days:daysAgo,aging:daysAgo>90?"90+":daysAgo>60?"60-90":daysAgo>30?"30-60":"0-30"};});
   const dynTcxc=dynCxc.reduce((a,c)=>a+c.a,0);const dynTc25=dynCxc.filter(c=>c.y===25).reduce((a,c)=>a+c.a,0);const dynTc26=dynCxc.filter(c=>c.y===26).reduce((a,c)=>a+c.a,0);
   const ag={"0-30":0,"30-60":0,"60-90":0,"90+":0};const agN={"0-30":0,"30-60":0,"60-90":0,"90+":0};
   dynCxc.forEach(c=>{ag[c.aging]+=c.a;agN[c.aging]++;});
   // Derive LTV dynamically from clients
-  const nameGroups={};clients.forEach(c=>{const k=c.ced||c.n;if(!nameGroups[k])nameGroups[k]={n:c.n,purchases:0,mq:0,total:0,first:c.fc,last:c.fc};nameGroups[k].purchases++;nameGroups[k].mq+=c.mq;nameGroups[k].total+=c.vta;if(c.fc<nameGroups[k].first)nameGroups[k].first=c.fc;if(c.fc>nameGroups[k].last)nameGroups[k].last=c.fc;});
+  const nameGroups={};clientsRetro.forEach(c=>{const k=c.ced||c.n;if(!nameGroups[k])nameGroups[k]={n:c.n,purchases:0,mq:0,total:0,first:c.fc,last:c.fc};nameGroups[k].purchases++;nameGroups[k].mq+=c.mq;nameGroups[k].total+=c.vta;if(c.fc<nameGroups[k].first)nameGroups[k].first=c.fc;if(c.fc>nameGroups[k].last)nameGroups[k].last=c.fc;});
   const dynRecurrents=Object.values(nameGroups).filter(g=>g.purchases>1).sort((a,b)=>b.total-a.total);
   const dynTotalRecRev=dynRecurrents.reduce((a,c)=>a+c.total,0);const dynAvgLTV=dynRecurrents.length>0?dynTotalRecRev/dynRecurrents.length:0;
   const dynTotalClients=Object.keys(nameGroups).length;const dynReRate=dynTotalClients>0?(dynRecurrents.length/dynTotalClients*100):0;
   const dynOneTimeLTV=6200+0.58*2000;const dynLtvRatio=dynOneTimeLTV>0?dynAvgLTV/dynOneTimeLTV:0;
   // Derive Garantías dynamically from clients
-  const dynWd=clients.map(c=>{const dl=c.fc?Math.floor((new Date(new Date(c.fc).setFullYear(new Date(c.fc).getFullYear()+1))-new Date(2026,2,20))/864e5):null;return{n:c.n,d:c.fc,mq:c.mq,g:c.g,dl};}).filter(c=>c.dl!==null);
+  const dynWd=clientsRetro.map(cl=>{const dl=cl.fc?Math.floor((new Date(new Date(cl.fc).setFullYear(new Date(cl.fc).getFullYear()+1))-TODAY_REAL)/864e5):null;return{n:cl.n,d:cl.fc,mq:cl.mq,g:cl.g,dl};}).filter(cl=>cl.dl!==null);
   const dynWExp=dynWd.filter(w=>w.dl<0).length;const dynWSoon=dynWd.filter(w=>w.dl>=0&&w.dl<=90).length;const dynWOk=dynWd.filter(w=>w.dl>90).length;
   // Derive Asesorías activas (4 months from first purchase with asesoria)
-  const firstAses={};clients.filter(c=>c.as>0).forEach(c=>{const k=c.ced||c.n;if(!firstAses[k]||c.fc<firstAses[k])firstAses[k]=c.fc;});
-  const dynAd=Object.entries(firstAses).map(([k,fc])=>{const exp=new Date(fc);exp.setMonth(exp.getMonth()+4);const dl=Math.floor((exp-new Date(2026,2,20))/864e5);return{n:k,dl};});
+  const TODAY_REAL=new Date();
+  const firstAses={};clientsRetro.filter(cl=>cl.as>0).forEach(cl=>{const k=cl.ced||cl.n;if(!firstAses[k]||cl.fc<firstAses[k].fc)firstAses[k]={fc:cl.fc,nombre:cl.n};});
+  const dynAd=Object.entries(firstAses).map(([k,obj])=>{const fechaInicio=asesoriaOverrides[k]||obj.fc;const exp=new Date(fechaInicio);exp.setMonth(exp.getMonth()+4);const dl=Math.floor((exp-TODAY_REAL)/864e5);return{n:obj.nombre,k,fc:obj.fc,fechaInicio,dl};});
   const dynAAct=dynAd.filter(a=>a.dl>=0).length;
 
   return(
-    <div style={{background:DARK,minHeight:"100vh",color:"#E2E8F0",fontFamily:"'Segoe UI',system-ui,sans-serif"}}>
+    <div style={{background:DARK,minHeight:"100vh",color:"#E2E8F0",fontFamily:"'Segoe UI',system-ui,sans-serif",overflowX:"hidden"}}><style>{`
+@media(max-width:768px){.sd-hdr{flex-direction:column!important;align-items:flex-start!important;gap:6px!important}.sd-nav{flex-wrap:wrap!important;gap:3px!important}.sd-kpis{flex-wrap:wrap!important}.sd-kpis>div{min-width:calc(50% - 4px)!important;flex:none!important}.sd-body{padding:6px 8px!important}.sd-tbl{font-size:7px!important;min-width:unset!important}input,select{font-size:12px!important}}
+`}</style>
       <div style={{background:`linear-gradient(135deg,${NAVY},${DARK})`,borderBottom:`2px solid ${BLUE}`,padding:"10px 12px 7px"}}>
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:4}}>
-          <div><span style={{fontSize:8,letterSpacing:3,color:BLUE,fontWeight:700}}>SNACKS DEPOT®</span><span style={{fontSize:15,fontWeight:800,color:"#fff",marginLeft:6}}>Estado de Resultados</span><span style={{fontSize:7,color:OK,marginLeft:8,fontWeight:400}}>● Datos guardados</span><button onClick={resetAll} style={{marginLeft:8,background:"transparent",color:"#475569",border:"1px solid #334155",borderRadius:3,fontSize:7,padding:"2px 6px",cursor:"pointer"}}>Restaurar originales</button></div>
-          <div style={{display:"flex",gap:2,flexWrap:"wrap"}}>
-            {["2025","2026","Registro de Ventas","Gastos","Cobros pendientes","Valor del cliente","Referidos","Garantías","Posición actual","Sugerencias","Guía"].map(t=>{const k=t;return(<button key={k} onClick={()=>{setTab(k);setVw("accrual");}} style={{padding:"3px 6px",fontSize:8,fontWeight:700,background:tab===k?BLUE:"transparent",color:tab===k?"#fff":"#94A3B8",border:tab===k?"none":"1px solid #334155",borderRadius:3,cursor:"pointer"}}>{t}</button>);})}
+        <div className="sd-hdr" style={{display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:4}}>
+          <div><img src="https://i.ibb.co/placeholder/logo.png" alt="" style={{height:22,marginRight:6,verticalAlign:"middle"}} onError={e=>{e.target.style.display="none"}}/><span style={{fontSize:8,letterSpacing:3,color:BLUE,fontWeight:700}}>SNACKS DEPOT®</span><span style={{fontSize:14,fontWeight:800,color:"#fff",marginLeft:6}}>Master Dashboard</span><span style={{fontSize:7,color:OK,marginLeft:8,fontWeight:400}}>● Datos guardados</span><span style={{fontSize:7,color:role==="admin"?GOLD:STEEL,marginLeft:6,fontWeight:700,padding:"1px 4px",borderRadius:2,background:role==="admin"?`${GOLD}22`:`${STEEL}22`}}>{role==="admin"?"ADMIN":"ASISTENTE"}</span><button onClick={()=>setRole(null)} style={{marginLeft:4,background:"transparent",color:"#475569",border:"1px solid #334155",borderRadius:2,fontSize:6,padding:"1px 4px",cursor:"pointer"}}>Salir</button>
+              <span style={{marginLeft:8,fontSize:7,color:"#94A3B8"}}>TC:</span>
+              <input type="number" step="0.01" value={tasa} onChange={e=>setTasa(Number(e.target.value))} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:2,color:GOLD,fontSize:8,fontWeight:700,padding:"1px 4px",width:45,textAlign:"center",marginLeft:2}}/>
+              <span style={{fontSize:7,color:"#475569",marginLeft:2}}>{tasaAuto?`API: ${tasaAuto.toFixed(2)} (${tasaDate})`:"cargando..."}</span>
+              {tasaAuto&&Math.abs(tasa-tasaAuto)>0.5&&(<button onClick={()=>setTasa(tasaAuto)} style={{marginLeft:3,background:WARN,color:DARK,border:"none",borderRadius:2,fontSize:6,padding:"1px 4px",cursor:"pointer",fontWeight:700}}>Usar API</button>)}</div>
+          <div className="sd-nav" style={{display:"flex",gap:2,flexWrap:"wrap"}}>
+            {visibleTabs.map(t=>{const k=t;return(<button key={k} onClick={()=>{setTab(k);setVw("accrual");}} style={{padding:"3px 6px",fontSize:8,fontWeight:700,background:tab===k?BLUE:"transparent",color:tab===k?"#fff":"#94A3B8",border:tab===k?"none":"1px solid #334155",borderRadius:3,cursor:"pointer"}}>{t}</button>);})}
           </div>
         </div>
-        {(tab==="2025"||tab==="2026")&&<div style={{display:"flex",gap:2,marginTop:5}}>
+        {(tab==="E.R. 2025"||tab==="E.R. 2026")&&<div style={{display:"flex",gap:2,marginTop:5}}>
           {[["accrual","Devengado (Accrual)"],["cash","Base de caja (Cash Basis)"],["eff","Eficiencia de cobro"]].map(([v,label])=>(<button key={v} onClick={()=>setVw(v)} style={{padding:"2px 6px",fontSize:7,fontWeight:600,background:vw===v?GOLD:"transparent",color:vw===v?DARK:"#64748B",border:vw===v?"none":"1px solid #334155",borderRadius:3,cursor:"pointer"}}>{label}</button>))}
         </div>}
       </div>
-      <div style={{padding:"8px 12px",maxWidth:920,margin:"0 auto"}}>
+      <div className="sd-body" style={{padding:"8px 12px",maxWidth:960,margin:"0 auto"}}>
 
         {/* ESTADO DE RESULTADOS */}
-        {(tab==="2025"||tab==="2026")&&<>
+        {(tab==="E.R. 2025"||tab==="E.R. 2026")&&<>
           <div style={{display:"flex",gap:4,marginBottom:8,flexWrap:"wrap"}}>
             <K l="Revenue máquinas" v={F(tot.tr-tot.as*2000)} s={`${tot.mq} máquinas`} co={"#fff"}/>
             <K l="Revenue asesorías" v={F(tot.as*2000)} s={`${tot.as} asesorías (${tot.mq>0?(tot.as/tot.mq*100).toFixed(0):0}%)`} co={STEEL}/>
             <K l="Revenue total facturado" v={F(tot.tr)} s={`${tot.mq} máq + ${tot.as} ases`}/>
             <K l="Cobrado en banco" v={F(tot.co)} co={GOLD} s={`Eficiencia: ${PC(ce)}`}/>
             <K l={vw==="cash"?"Ganancia en efectivo":"Ganancia neta"} v={F(vw==="cash"?tot.cp:tot.np)} co={OK} s={`Margen: ${PC(vw==="cash"?cpm:am)}`}/>
-            <K l="Pendiente por cobrar" v={F(tab==="2025"?tc25:tc26)} co={DANGER} s={`${cxc.filter(c=>c.y===(tab==="2025"?25:26)).length} clientes`}/>
+            <K l="Pendiente por cobrar" v={F(tab==="E.R. 2025"?dynTc25:dynTc26)} co={DANGER} s={`${dynCxc.filter(c=>c.y===(tab==="E.R. 2025"?25:26)).length} clientes`}/>
           </div>
           {(vw==="cash"||vw==="eff")&&<div style={{background:"#0F172A",borderRadius:6,padding:"6px 10px",marginBottom:8,border:"1px solid #334155"}}>
             <div style={{fontSize:9,color:"#94A3B8",lineHeight:1.5}}>
-              <span style={{color:WARN,fontWeight:700}}>Nota de conciliación:</span> El monto cobrado incluye pagos sobre facturas de meses o años anteriores, y el pendiente por cobrar solo refleja saldos abiertos registrados en cobranza. Por eso la suma de ambos no es exactamente igual al revenue facturado. {tab==="2026"&&"Además, marzo de 2026 aún no ha cerrado y algunas ventas recientes no se han registrado todavía en el módulo de cobranza."}
+              <span style={{color:WARN,fontWeight:700}}>Nota de conciliación:</span> El monto cobrado incluye pagos sobre facturas de meses o años anteriores, y el pendiente por cobrar solo refleja saldos abiertos registrados en cobranza. Por eso la suma de ambos no es exactamente igual al revenue facturado. {tab==="E.R. 2026"&&"Además, marzo de 2026 aún no ha cerrado y algunas ventas recientes no se han registrado todavía en el módulo de cobranza."}
             </div>
           </div>}
           <div style={{background:"#1E293B",borderRadius:8,border:"1px solid #334155",overflow:"hidden"}}>
@@ -470,85 +622,7 @@ export default function Dashboard(){
           </div>
 
           {/* QUARTERLY BREAKDOWN */}
-          {(()=>{
-            const qMap={"Ene":1,"Feb":1,"Mar":1,"Abr":2,"May":2,"Jun":2,"Jul":3,"Ago":3,"Sep":3,"Oct":4,"Nov":4,"Dic":4};
-            const qs={};
-            data.forEach(d=>{
-              const q="Q"+(qMap[d.m]||1);
-              if(!qs[q])qs[q]={rev:0,co:0,np:0,cp:0,mq:0,as:0,months:0,rM:0,rA:0};
-              qs[q].rev+=d.tr;qs[q].co+=d.co;qs[q].np+=d.np;qs[q].cp+=d.cp;qs[q].mq+=d.mq;qs[q].as+=d.as;qs[q].months++;qs[q].rM+=d.rM;qs[q].rA+=d.rA;
-            });
-            const qArr=Object.entries(qs).sort((a,b)=>a[0].localeCompare(b[0]));
-            const maxRev=Math.max(...qArr.map(([,q])=>q.rev));
-            const delta=(curr,prev)=>{if(!prev||prev===0)return null;return((curr-prev)/prev*100);};
-            const DeltaBadge=({val})=>{if(val===null||val===undefined)return <span style={{fontSize:8,color:"#475569"}}>—</span>;const up=val>=0;return <span style={{fontSize:8,fontWeight:700,color:up?OK:DANGER}}>{up?"▲":"▼"} {Math.abs(val).toFixed(0)}%</span>;};
-            return(
-              <div style={{background:"#1E293B",borderRadius:8,border:"1px solid #334155",padding:12,marginTop:8}}>
-                <div style={{fontSize:10,fontWeight:700,color:GOLD,marginBottom:8}}>Vista trimestral — con variación entre trimestres</div>
-                <div style={{display:"flex",gap:6}}>
-                  {qArr.map(([qName,q],idx)=>{
-                    const prev=idx>0?qArr[idx-1][1]:null;
-                    const profit=vw==="cash"?q.cp:q.np;
-                    const prevProfit=prev?(vw==="cash"?prev.cp:prev.np):null;
-                    const effQ=q.rev>0?(q.co/q.rev*100):0;
-                    const prevEff=prev&&prev.rev>0?(prev.co/prev.rev*100):null;
-                    return(
-                      <div key={qName} style={{flex:1,background:"#0F172A",borderRadius:6,padding:10,border:"1px solid #334155"}}>
-                        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
-                          <span style={{fontSize:13,fontWeight:800,color:"#fff"}}>{qName}</span>
-                          <span style={{fontSize:8,color:"#64748B"}}>{q.months} {q.months===1?"mes":"meses"}</span>
-                        </div>
-                        <div style={{marginBottom:5}}>
-                          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:2}}>
-                            <span style={{fontSize:8,color:"#94A3B8"}}>Facturado</span>
-                            <div style={{display:"flex",alignItems:"center",gap:4}}>
-                              <DeltaBadge val={delta(q.rev,prev?.rev)}/>
-                              <span style={{fontSize:10,fontWeight:700,color:"#fff"}}>{F(q.rev)}</span>
-                            </div>
-                          </div>
-                          <Bar v={q.rev} mx={maxRev} co={BLUE}/>
-                        </div>
-                        <div style={{marginBottom:5}}>
-                          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:2}}>
-                            <span style={{fontSize:8,color:"#94A3B8"}}>Cobrado</span>
-                            <div style={{display:"flex",alignItems:"center",gap:4}}>
-                              <DeltaBadge val={delta(q.co,prev?.co)}/>
-                              <span style={{fontSize:10,fontWeight:700,color:GOLD}}>{F(q.co)}</span>
-                            </div>
-                          </div>
-                          <Bar v={q.co} mx={maxRev} co={GOLD}/>
-                        </div>
-                        <div style={{borderTop:"1px solid #334155",paddingTop:5,marginTop:3}}>
-                          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-                            <span style={{fontSize:8,color:"#94A3B8"}}>{vw==="cash"?"Ganancia caja":"Ganancia neta"}</span>
-                            <div style={{display:"flex",alignItems:"center",gap:4}}>
-                              <DeltaBadge val={delta(profit,prevProfit)}/>
-                              <span style={{fontSize:10,fontWeight:700,color:profit>0?OK:DANGER}}>{F(profit)}</span>
-                            </div>
-                          </div>
-                          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:3}}>
-                            <span style={{fontSize:8,color:"#64748B"}}>Eficiencia de cobro</span>
-                            <span style={{fontSize:9,fontWeight:700,color:effQ>=90?OK:effQ>=70?WARN:DANGER}}>{PC(effQ)}</span>
-                          </div>
-                          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:3}}>
-                            <span style={{fontSize:8,color:"#64748B"}}>Máquinas vendidas</span>
-                            <div style={{display:"flex",alignItems:"center",gap:4}}>
-                              <DeltaBadge val={delta(q.mq,prev?.mq)}/>
-                              <span style={{fontSize:9,color:"#fff"}}>{q.mq}</span>
-                            </div>
-                          </div>
-                          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:2}}>
-                            <span style={{fontSize:8,color:"#64748B"}}>Asesorías</span>
-                            <span style={{fontSize:9,color:STEEL}}>{q.as} ({q.mq>0?(q.as/q.mq*100).toFixed(0):0}%)</span>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })()}
+          <QuarterlyView data={data} vw={vw}/>
 
           {/* COGS + ANALYSIS PANEL */}
           <Inf color={GOLD}>
@@ -581,28 +655,28 @@ export default function Dashboard(){
               {vw==="cash"?"Análisis de caja":"Análisis de resultados"} — {tab}
             </div>
             <div style={{fontSize:10,color:"#CBD5E1",lineHeight:1.8}}>
-              {vw==="cash"&&tab==="2026"&&<>
+              {vw==="cash"&&tab==="E.R. 2026"&&<>
                 En el primer trimestre de 2026 se vendieron 38 máquinas. El costo de adquisición de estas máquinas se distribuyó entre los pagos realizados en meses anteriores. El adelanto a fábrica (63% del costo) se pagó cuando se ordenó el container en 2025, y el saldo al arribo (37%) más las aduanas forman parte del CxP de ~RD$12 millones que aún está pendiente de liquidar, con fecha estimada de pago en mayo de 2026.
                 <br/><br/>
                 <span style={{color:WARN}}>La eficiencia de cobro bajó a {PC(ce)}.</span> De los {F(tot.tr)} facturados, solo entraron {F(tot.co)} al banco. La brecha de {F(tot.tr-tot.co)} corresponde a clientes que pactaron pagar al notificar la llegada de su máquina o que tienen planes de pago parciales. Esta política está erosionando el flujo de caja real del negocio.
                 <br/><br/>
                 <span style={{color:"#94A3B8"}}>Nota importante:</span> El cobro de enero incluye aproximadamente $10,500 que corresponden a facturas de 2025 (pagos finales de Ely Cruz, Natanelle, Wilner, Augusto y Cynthia). Estos inflan ligeramente el efectivo recibido en enero pero pertenecen al revenue del año anterior.
               </>}
-              {vw==="cash"&&tab==="2025"&&<>
+              {vw==="cash"&&tab==="E.R. 2025"&&<>
                 En 2025 se cobró {F(sumAll(compute(d25State)).co)} de un total facturado de {F(sumAll(compute(d25State)).tr)}, lo que equivale a una eficiencia de cobro del {PC(sumAll(compute(d25State)).co/sumAll(compute(d25State)).tr*100)}. La mayoría de los clientes pagaron al contado o completaron sus pagos en plazos cortos. Solo quedaron pendientes ~$28,000 al cierre de diciembre. La ganancia en efectivo fue de {F(sumAll(compute(d25State)).cp)} con un margen sobre cobrado del {PC(sumAll(compute(d25State)).cp/sumAll(compute(d25State)).co*100)}.
               </>}
-              {vw==="accrual"&&tab==="2026"&&<>
+              {vw==="accrual"&&tab==="E.R. 2026"&&<>
                 El primer trimestre de 2026 cerró con un revenue total de {F(tot.tr)} proveniente de {tot.mq} máquinas y {tot.as} asesorías. El costo de mercancía vendida, calculado a $2,910 por máquina, sumó {F(tot.cg)}. Los gastos fijos de tres meses totalizaron {F(tot.op)}.
                 <br/><br/>
                 <span style={{color:OK}}>La ganancia neta fue de {F(tot.np)} con un margen del {PC(am)}.</span>
                 <br/><br/>
                 <span style={{color:WARN}}>Sin embargo, hay una tendencia preocupante:</span> enero fue el mejor mes con 18 máquinas y una tasa de asesoría del 58%, generando $73,000 de ganancia neta. Febrero cayó a 11 máquinas y marzo a solo 9. La tasa de asesoría se mantuvo alta (~58%), pero el volumen de ventas bajó significativamente. Sin intervención (segundo setter, anuncios, campaña de recompra), el segundo trimestre no alcanzará el ritmo necesario para la ruta al millón.
               </>}
-              {vw==="accrual"&&tab==="2025"&&<>
+              {vw==="accrual"&&tab==="E.R. 2025"&&<>
                 El 2025 cerró con {F(tot.tr)} en revenue sobre {tot.mq} máquinas y {tot.as} asesorías en 9 meses de operación. La ganancia neta fue de {F(tot.np)}, equivalente a un margen del {PC(am)}. El mejor mes en revenue fue septiembre con $142,000 y 20 máquinas. Diciembre fue el pico de volumen con 25 máquinas vendidas, aunque con margen ligeramente menor por la mezcla de producto (más máquinas sin asesoría).
               </>}
               {vw==="eff"&&<>
-                {tab==="2026"?<>La eficiencia de cobro del primer trimestre de 2026 fue: enero {PC(data[0]?.ce||0)}, febrero {PC(data[1]?.ce||0)} y marzo {PC(data[2]?.ce||0)} (parcial, el mes aún no cierra). La brecha total sin cobrar es de {F(tot.tr-tot.co)}. De 24 transacciones realizadas, 11 tienen saldo pendiente. Las causas principales son: la política flexible de pagar al notificar la llegada, clientes con pagos en 2 o 3 cuotas sin contrato formal, y un caso extremo (Rodrigo) que pagó solo $1,000 de $12,400.</>:<>El 2025 cerró con una eficiencia de cobro promedio del {PC(ce)}. Los meses más fuertes fueron septiembre y octubre, donde se cobraron incluso pagos adelantados. Noviembre y diciembre bajaron por el incremento de ventas con pago diferido al notificar la llegada del container.</>}
+                {tab==="E.R. 2026"?<>La eficiencia de cobro del primer trimestre de 2026 fue: enero {PC(data[0]?.ce||0)}, febrero {PC(data[1]?.ce||0)} y marzo {PC(data[2]?.ce||0)} (parcial, el mes aún no cierra). La brecha total sin cobrar es de {F(tot.tr-tot.co)}. De 24 transacciones realizadas, 11 tienen saldo pendiente. Las causas principales son: la política flexible de pagar al notificar la llegada, clientes con pagos en 2 o 3 cuotas sin contrato formal, y un caso extremo (Rodrigo) que pagó solo $1,000 de $12,400.</>:<>El 2025 cerró con una eficiencia de cobro promedio del {PC(ce)}. Los meses más fuertes fueron septiembre y octubre, donde se cobraron incluso pagos adelantados. Noviembre y diciembre bajaron por el incremento de ventas con pago diferido al notificar la llegada del container.</>}
               </>}
             </div>
           </Inf>
@@ -648,29 +722,31 @@ export default function Dashboard(){
                   <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr 1fr",gap:6,marginBottom:8}}>
                     <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Cédula/RNC *</label><input value={nc.ced} onChange={e=>setNc({...nc,ced:e.target.value})} style={{background:"#0F172A",border:`1px solid ${nc.ced?"#334155":DANGER}`,borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}} placeholder="000-0000000-0"/></div>
                     <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Nombre *</label><input value={nc.n} onChange={e=>setNc({...nc,n:e.target.value})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}} placeholder="Nombre completo"/></div>
-                    <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Tipo</label><select value={nc.tipo} onChange={e=>setNc({...nc,tipo:e.target.value})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}><option value="PF">Persona Física</option><option value="Empresa">Empresa</option></select></div>
+                    <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Tipo</label><select value={nc.tipo} onChange={e=>{const t=e.target.value;setNc(p=>({...p,tipo:t,itbis:(t==="Empresa"||p.mp==="Link Azul")?Math.round(p.vta*0.18*100)/100:0,factura:t==="Empresa"?"B01":(p.mp==="Link Azul"?"B02":"")}));}} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}><option value="PF">Persona Física</option><option value="Empresa">Empresa</option></select></div>
                     <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Empresa</label><input value={nc.emp} onChange={e=>setNc({...nc,emp:e.target.value})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}} placeholder="Si aplica"/></div>
-                    <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Medio pago</label><select value={nc.mp} onChange={e=>setNc({...nc,mp:e.target.value})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}><option>Transferencia</option><option>Depósito</option><option>Link Azul</option><option>Financiamiento</option></select></div>
+                    <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Medio pago</label><select value={nc.mp} onChange={e=>{const mp=e.target.value;setNc(p=>({...p,mp,comAzul:mp==="Link Azul"?Math.round(p.vta*0.0395*100)/100:0,itbis:(p.tipo==="Empresa"||mp==="Link Azul")?Math.round(p.vta*0.18*100)/100:0,factura:p.tipo==="Empresa"?"B01":(mp==="Link Azul"?"B02":p.factura)}));}} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}><option>Transferencia</option><option>Depósito</option><option>Link Azul</option><option>Financiamiento</option></select></div>
                   </div>
                   <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr 1fr 1fr",gap:6,marginBottom:8}}>
                     <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>F. compra *</label><input type="date" value={nc.fc} onChange={e=>setNc({...nc,fc:e.target.value})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}/></div>
                     <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>F. entrega</label><input type="date" value={nc.fe} onChange={e=>setNc({...nc,fe:e.target.value})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}/></div>
-                    <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Máquinas</label><input type="number" min="1" value={nc.mq} onChange={e=>setNc({...nc,mq:Number(e.target.value)})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}/></div>
-                    <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Asesorías</label><input type="number" min="0" value={nc.as} onChange={e=>setNc({...nc,as:Number(e.target.value),compra:Number(e.target.value)>0?"Maq. + Asesoria":"Maquina"})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}/></div>
+                    <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Máquinas</label><input type="number" min="1" value={nc.mq} onChange={e=>{const m=Number(e.target.value);setNc(p=>({...p,mq:m,vta:m*6200+p.as*2000}));}} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}/></div>
+                    <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Asesorías</label><input type="number" min="0" value={nc.as} onChange={e=>{const a=Number(e.target.value);setNc(p=>({...p,as:a,compra:a>0?"Maq. + Asesoria":"Maquina",vta:p.mq*6200+a*2000}));}} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}/></div>
                     <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Venta USD</label><input type="number" value={nc.vta} onChange={e=>setNc({...nc,vta:Number(e.target.value)})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}/></div>
                     <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Pagado</label><input type="number" value={nc.pag} onChange={e=>setNc({...nc,pag:Number(e.target.value)})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}/></div>
                   </div>
-                  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr 1fr 1fr",gap:6,marginBottom:8}}>
+                  <div style={{display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:6,marginBottom:8}}>
                     <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Moneda</label><select value={nc.mon} onChange={e=>setNc({...nc,mon:e.target.value})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}><option>USD</option><option>DOP</option></select></div>
-                    <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Tasa</label><input type="number" step="0.01" value={nc.tasa} onChange={e=>setNc({...nc,tasa:Number(e.target.value)})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}/></div>
+                    <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Tasa</label><input type="number" step="0.01" value={nc.tasa||tasa} onChange={e=>setNc({...nc,tasa:Number(e.target.value)})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}/></div>
                     <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Grupo</label><input type="number" min="1" value={nc.g} onChange={e=>setNc({...nc,g:Number(e.target.value)})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}/></div>
                     <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Closer</label><select value={nc.closer} onChange={e=>setNc({...nc,closer:e.target.value})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}><option>Brianny</option><option>Ulises</option></select></div>
                     <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Setter</label><select value={nc.setter} onChange={e=>setNc({...nc,setter:e.target.value})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}><option value="">—</option><option>Diana</option><option>Brianny</option></select></div>
+                    <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Cuenta destino</label><select value={nc.cuenta||""} onChange={e=>setNc({...nc,cuenta:e.target.value})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}><option value="">—</option><option>Popular BIZ DOP</option><option>Popular BIZ USD</option><option>Santa Cruz DOP</option><option>Santa Cruz USD</option></select></div>
                     <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Grupo compra</label><select value={nc.grupo} onChange={e=>setNc({...nc,grupo:e.target.value})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}}><option>Solo</option><option>Pareja</option><option>Socio</option><option>Familiar</option></select></div>
+                    <div><label style={{fontSize:7,color:"#94A3B8",display:"block",marginBottom:1}}>Referido por</label><input value={nc.ref||""} onChange={e=>setNc({...nc,ref:e.target.value})} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:3,color:"#E2E8F0",fontSize:9,padding:"4px 6px",width:"100%"}} placeholder="Nombre del referidor"/></div>
                   </div>
                   <div style={{display:"flex",justifyContent:"flex-end",gap:4}}>
                     <button onClick={()=>{setShowForm(false);setNc(emptyC);setFormErr("");}} style={{background:"transparent",color:"#64748B",border:"1px solid #334155",borderRadius:3,fontSize:8,padding:"4px 12px",cursor:"pointer"}}>Cancelar</button>
-                    <button onClick={()=>{if(!nc.ced.trim()){setFormErr("Cédula/RNC es obligatorio");return;}if(!nc.n.trim()){setFormErr("Nombre es obligatorio");return;}if(!nc.fc){setFormErr("Fecha de compra es obligatoria");return;}const newId=Math.max(...clients.map(c=>c.id),0)+1;setClients(prev=>[...prev,{...nc,id:newId}]);setShowForm(false);setNc(emptyC);setFormErr("");}} style={{background:OK,color:"#fff",border:"none",borderRadius:4,fontSize:9,padding:"5px 16px",cursor:"pointer",fontWeight:700}}>Guardar registro</button>
+                    <button onClick={()=>{if(!nc.ced.trim()){setFormErr("Cédula/RNC es obligatorio");return;}if(!nc.n.trim()){setFormErr("Nombre es obligatorio");return;}if(!nc.fc){setFormErr("Fecha de compra es obligatoria");return;}const newId=Math.max(...clients.map(c=>c.id),0)+1;setClients(prev=>[...prev,{...nc,id:newId,tasa:nc.tasa||tasa,itbis:(nc.tipo==="Empresa"||nc.mp==="Link Azul")?Math.round(nc.vta*0.18*100)/100:0,comAzul:nc.mp==="Link Azul"?Math.round(nc.vta*0.0395*100)/100:0,factura:nc.tipo==="Empresa"?"B01":(nc.mp==="Link Azul"?"B02":"")}]);setShowForm(false);setNc(emptyC);setFormErr("");}} style={{background:OK,color:"#fff",border:"none",borderRadius:4,fontSize:9,padding:"5px 16px",cursor:"pointer",fontWeight:700}}>Guardar registro</button>
                   </div>
                 </div>
               )}
@@ -681,6 +757,8 @@ export default function Dashboard(){
                 <K l="Ventas totales" v={F(regSVta)} co={GOLD} s={`Cobrado: ${F(regSPag)}`}/>
                 <K l="Adeudado" v={F(regSVta-regSPag)} co={regSVta-regSPag>0?DANGER:OK} s={`Eficiencia: ${regSVta>0?(regSPag/regSVta*100).toFixed(1):100}%`}/>
                 <K l="Comisión por Closings" v={F(regComClosings)} co={WARN} s={`${regBriannyCierres.length} cierres · $100/cierre`}/>
+                <K l="Com. Azul descontada" v={F(totalComAzul)} co={"#F97316"} s={`${clientsRetro.filter(c=>c.comAzul>0).length} pagos · 3.95%`}/>
+                <K l="ITBIS 18% a reportar" v={F(totalITBIS)} co={WARN} s={`${clientsRetro.filter(c=>c.itbis>0).length} empresas · tentativo`}/>
                 <K l="Comisión por Setting" v={F(regComSetting)} co={BLUE} s={`${regDianaAses.length} ases 5% + ${regDianaMaqMarzo.length} máq $50`}/>
               </div>
               {/* TABLE */}
@@ -699,7 +777,7 @@ export default function Dashboard(){
                       <th style={thr}>Venta USD</th><th style={thr}>Pagado</th><th style={th}>Moneda</th><th style={thr}>Tasa</th><th style={thr}>Adeudado</th>
                       <th style={th}>Medio pago</th><th style={th}>F.compra</th><th style={th}>F.entrega</th>
                       <th style={thr}>Días háb.</th><th style={th}>Closer</th><th style={th}>Setter</th>
-                      <th style={th}>Grupo</th><th style={th}>Grupo compra</th><th style={{...th,width:50}}>Acción</th>
+                      <th style={th}>Grupo</th><th style={th}>Grupo compra</th><th style={thr}>ITBIS</th><th style={th}>Com. Azul</th><th style={th}>Factura</th><th style={th}>Cuenta</th><th style={{...th,width:50}}>Acción</th>
                     </tr></thead>
                     <tbody>{regShow.map((c,i)=>{
                       const adeudado=c.vta-c.pag;
@@ -733,6 +811,10 @@ export default function Dashboard(){
                           <td style={{...td,fontSize:7}}>{c.setter||"—"}</td>
                           <td style={tdc}>{c.g>0?(<span style={{fontSize:7,padding:"1px 3px",borderRadius:2,background:`${GOLD}22`,color:GOLD}}>G{c.g}</span>):"—"}</td>
                           <td style={{...td,fontSize:7}}>{c.grupo}</td>
+                          <td style={{...tdr,fontSize:7,color:c.itbis>0?WARN:"#334155"}}>{c.itbis>0?F(c.itbis):"—"}</td>
+                          <td style={{...tdr,fontSize:7,color:c.comAzul>0?"#F97316":"#334155"}}>{c.comAzul>0?F(c.comAzul):"—"}</td>
+                          <td style={{...td,fontSize:7}}>{c.factura?(<span style={{padding:"1px 3px",borderRadius:2,background:c.factura==="B01"?`${BLUE}22`:`${STEEL}22`,color:c.factura==="B01"?BLUE:STEEL,fontWeight:700}}>{c.factura}</span>):"—"}</td>
+                          <td style={{...td,fontSize:7,color:"#64748B"}}>{c.cuenta||"—"}</td>
                           <td style={tdc}>{editId===c.id?(<button onClick={()=>setEditId(null)} style={{background:OK,color:"#fff",border:"none",borderRadius:2,fontSize:7,padding:"2px 4px",cursor:"pointer"}}>OK</button>):(<button onClick={()=>setEditId(c.id)} style={{background:"transparent",color:"#64748B",border:"1px solid #334155",borderRadius:2,fontSize:7,padding:"1px 4px",cursor:"pointer"}}>Editar</button>)}</td>
                         </tr>
                       );
@@ -808,12 +890,12 @@ export default function Dashboard(){
         )}
 
         {/* CUENTAS POR COBRAR */}
-        {tab==="Cobros pendientes"&&<>
-          <div style={{display:"flex",gap:4,marginBottom:8,flexWrap:"wrap"}}>
+        {tab==="Cobranza"&&<>
+          <div style={{display:"flex",gap:4,marginBottom:8,flexWrap:"wrap"}} className="sd-kpis">
             <K l="Total adeudado" v={F(dynTcxc)} co={DANGER} s={`${dynCxc.length} clientes`}/>
             <K l="Adeudado 2025" v={F(dynTc25)} co={WARN} s={`${dynCxc.filter(c=>c.y===25).length} clientes`}/>
             <K l="Adeudado 2026" v={F(dynTc26)} co={DANGER} s={`${dynCxc.filter(c=>c.y===26).length} clientes`}/>
-            <K l="Deuda más alta" v={dynCxc.length>0?F(Math.max(...dynCxc.map(c=>c.a))):"$0"} co={DANGER} s={dynCxc.length>0?dynCxc.sort((a,b)=>b.a-a.a)[0].n:"—"}/>
+            <K l="Deuda más alta" v={dynCxc.length>0?F(Math.max(...dynCxc.map(c=>c.a))):"$0"} co={DANGER} s={dynCxc.length>0?[...dynCxc].sort((a,b)=>b.a-a.a)[0].n:"—"}/>
           </div>
           <div style={{display:"flex",gap:3,marginBottom:8}}>
             {[["0 a 30 días",ag["0-30"],agN["0-30"],OK],["30 a 60 días",ag["30-60"],agN["30-60"],WARN],["60 a 90 días",ag["60-90"],agN["60-90"],"#F97316"],["Más de 90 días",ag["90+"],agN["90+"],DANGER]].map(([l,v,n,c],i)=>(
@@ -821,30 +903,37 @@ export default function Dashboard(){
                 <div style={{fontSize:7,color:"#64748B"}}>{l}</div>
                 <div style={{fontSize:14,fontWeight:800,color:c}}>{F(v)}</div>
                 <div style={{fontSize:7,color:"#475569"}}>{n} clientes</div>
-                <div style={{marginTop:3}}><Bar v={v} mx={dynTcxc} co={c}/></div>
+                <div style={{marginTop:3}}><Bar v={v} mx={dynTcxc||1} co={c}/></div>
               </div>
             ))}
           </div>
           <div style={{background:"#1E293B",borderRadius:8,border:"1px solid #334155",overflow:"hidden"}}>
-            <div style={{padding:"5px 8px",background:NAVY,fontSize:8,fontWeight:700,color:DANGER}}>Ordenados por monto (deuda más alta primero)</div>
+            <div style={{padding:"5px 8px",background:NAVY,fontSize:8,fontWeight:700,color:DANGER,display:"flex",justifyContent:"space-between"}}>
+              <span>Cuentas por cobrar — ordenadas por monto</span>
+              <span style={{color:"#64748B",fontSize:7}}>Editar pagado para registrar abono</span>
+            </div>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:9}}>
-              <thead><tr style={{background:"#0F172A"}}><th style={th}>#</th><th style={th}>Cliente</th><th style={thr}>Monto</th><th style={thr}>Días</th><th style={th}>Antigüedad</th><th style={th}>Observación</th></tr></thead>
+              <thead><tr style={{background:"#0F172A"}}><th style={th}>#</th><th style={th}>Cliente</th><th style={thr}>Adeudado</th><th style={thr}>Pagado</th><th style={thr}>Total venta</th><th style={thr}>Días</th><th style={th}>Aging</th><th style={th}>Medio pago</th><th style={{...th,width:50}}>Acción</th></tr></thead>
               <tbody>{[...dynCxc].sort((a,b)=>b.a-a.a).map((c,i)=>{
                 const ac=c.days>90?DANGER:c.days>60?"#F97316":c.days>30?WARN:OK;
+                const orig=clientsRetro.find(x=>x.n===c.n&&(x.vta-x.pag)>0);
                 return(<tr key={i} style={{borderBottom:"1px solid #334155",background:i<3?"#1a1520":undefined}}>
                   <td style={tdc}><span style={{color:i<3?DANGER:GOLD,fontWeight:700}}>{i+1}</span></td>
                   <td style={td}>{c.n} <span style={{fontSize:7,color:"#475569"}}>20{c.y}</span></td>
                   <td style={{...tdr,fontWeight:700,color:c.a>5000?DANGER:c.a>2000?WARN:"#E2E8F0"}}>{F(c.a)}</td>
-                  <td style={{...tdr,color:ac,fontWeight:700}}>{c.days} días</td>
+                  <td style={tdr}>{orig&&editId===orig.id?(<input type="number" value={orig.pag} onChange={e=>setClients(prev=>prev.map(x=>x.id===orig.id?{...x,pag:Number(e.target.value)}:x))} style={{background:"#0F172A",border:"1px solid #334155",borderRadius:2,color:GOLD,fontSize:8,padding:"2px 3px",width:60,textAlign:"right"}}/>):<span style={{color:GOLD}}>{orig?F(orig.pag):"—"}</span>}</td>
+                  <td style={{...tdr,color:"#94A3B8"}}>{orig?F(orig.vta):"—"}</td>
+                  <td style={{...tdr,color:ac,fontWeight:700}}>{c.days}d</td>
                   <td style={td}><span style={{fontSize:7,padding:"1px 3px",borderRadius:2,background:`${ac}22`,color:ac,fontWeight:700}}>{c.aging}</span></td>
-                  <td style={{...td,fontSize:8,color:"#64748B"}}>{c.o}</td>
+                  <td style={{...td,fontSize:7}}>{orig?orig.mp:"—"}</td>
+                  <td style={tdc}>{orig?(editId===orig.id?(<button onClick={()=>setEditId(null)} style={{background:OK,color:"#fff",border:"none",borderRadius:2,fontSize:7,padding:"2px 4px",cursor:"pointer"}}>OK</button>):(<button onClick={()=>setEditId(orig.id)} style={{background:"transparent",color:"#64748B",border:"1px solid #334155",borderRadius:2,fontSize:7,padding:"1px 4px",cursor:"pointer"}}>Abonar</button>)):"—"}</td>
                 </tr>);})}</tbody>
             </table>
           </div>
         </>}
 
         {/* VALOR DEL CLIENTE (LTV) */}
-        {tab==="Valor del cliente"&&<>
+        {tab==="LTV"&&<>
           <div style={{display:"flex",gap:4,marginBottom:8,flexWrap:"wrap"}}>
             <K l="Valor promedio recurrente" v={F(dynAvgLTV)} co={OK} s={`vs ${F(dynOneTimeLTV)} cliente nuevo`}/>
             <K l="Ratio de valor" v={`${dynLtvRatio.toFixed(1)}x`} co={dynLtvRatio>=3?OK:WARN} s={dynLtvRatio>=3?"Excelente":"Saludable"}/>
@@ -878,7 +967,7 @@ export default function Dashboard(){
             </div>
           </div>
           <div style={{background:"#1E293B",borderRadius:8,border:"1px solid #334155",overflow:"hidden"}}>
-            <div style={{padding:"5px 8px",background:NAVY,fontSize:8,fontWeight:700,color:GOLD}}>Clientes con mayor valor (datos corregidos con registro real por grupo)</div>
+            <div style={{padding:"5px 8px",background:NAVY,fontSize:8,fontWeight:700,color:GOLD}}>Clientes con mayor LTV (valor de vida del cliente)</div>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:9}}>
               <thead><tr style={{background:"#0F172A"}}><th style={th}>#</th><th style={th}>Cliente</th><th style={thr}>Compras</th><th style={thr}>Máquinas</th><th style={thr}>Revenue total</th><th style={th}>Período</th><th style={{...thr,width:60}}></th></tr></thead>
               <tbody>{dynRecurrents.map((c,i)=>(<tr key={i} style={{borderBottom:"1px solid #334155"}}>
@@ -896,11 +985,18 @@ export default function Dashboard(){
         {/* REFERIDOS */}
         {tab==="Referidos"&&<>
           <div style={{display:"flex",gap:4,marginBottom:8,flexWrap:"wrap"}}>
-            <K l="Total referidos" v={totalRefs} co={GOLD} s="desde octubre 2025"/>
-            <K l="Cerrados" v={refsCerrados} co={OK} s={`${(refsCerrados/totalRefs*100).toFixed(0)}% tasa de cierre`}/>
-            <K l="En seguimiento" v={refsSeguimiento} co={WARN} s={`${(refsSeguimiento/totalRefs*100).toFixed(0)}% del total`}/>
-            <K l="Perdidos" v={refsPerdidos} co={DANGER} s={`${(refsPerdidos/totalRefs*100).toFixed(0)}% del total`}/>
+            <K l="Referidos (histórico)" v={totalRefs} co={GOLD} s="datos importados del sheet"/>
+            <K l="Cerrados (histórico)" v={refsCerrados} co={OK} s={`${totalRefs>0?(refsCerrados/totalRefs*100).toFixed(0):0}% tasa de cierre`}/>
+            <K l="Referidos nuevos (dinámico)" v={dynRefTotal} co={BLUE} s={`${dynRefCerrados} cerrados desde registro`}/>
+            <K l="Revenue por referidos" v={F(dynRefList.reduce((a,r)=>a+r.rev,0))} co={OK} s={`${dynRefList.reduce((a,r)=>a+r.mq,0)} máquinas`}/>
           </div>
+          {dynRefList.length>0&&<div style={{background:"#1E293B",borderRadius:8,border:`1px solid ${BLUE}44`,padding:10,marginBottom:8}}>
+            <div style={{fontSize:9,fontWeight:700,color:BLUE,marginBottom:6}}>Referidos dinámicos (desde Registro de Ventas)</div>
+            <table style={{width:"100%",borderCollapse:"collapse",fontSize:9}}>
+              <thead><tr style={{background:"#0F172A"}}><th style={th}>Referidor</th><th style={thr}>Referidos</th><th style={thr}>Máquinas</th><th style={thr}>Revenue</th></tr></thead>
+              <tbody>{dynRefList.map((r,i)=>(<tr key={i} style={{borderBottom:"1px solid #334155"}}><td style={td}>{r.n}</td><td style={tdr}>{r.t}</td><td style={tdr}>{r.mq}</td><td style={{...tdr,color:OK,fontWeight:700}}>{F(r.rev)}</td></tr>))}</tbody>
+            </table>
+          </div>}
 
           {/* VALOR ECONÓMICO */}
           <div style={{background:"#1E293B",borderRadius:8,border:`1px solid ${OK}44`,padding:12,marginBottom:8}}>
@@ -1001,48 +1097,16 @@ export default function Dashboard(){
 
 
         {/* GARANTÍAS Y ASESORÍAS */}
-        {tab==="Garantías"&&<>
+                {tab==="Garantías"&&<>
           <div style={{display:"flex",gap:4,marginBottom:8,flexWrap:"wrap"}}>
-            <K l="Garantías vencidas" v={dynWExp} co={DANGER} s="Requieren atención"/>
-            <K l="Vencen en 0-90 días" v={dynWSoon} co={WARN} s="Próximas a vencer"/>
-            <K l="Más de 90 días" v={dynWOk} co={OK} s="Sin urgencia"/>
+            <K l="Garantías activas" v={dynWd.filter(w=>w.dl>=0).length} co={OK} s={`${dynWExp} vencidas`}/>
+            <K l="Vencen en 90 días" v={dynWd.filter(w=>w.dl>=0&&w.dl<=90).length} co={WARN} s="requieren atención"/>
             <K l="Asesorías activas" v={dynAAct} co={STEEL} s={`de ${Object.keys(firstAses).length} con asesoría`}/>
           </div>
-
-          {/* ESCALA VISUAL GARANTÍAS */}
           <div style={{background:"#1E293B",borderRadius:8,border:"1px solid #334155",padding:12,marginBottom:8}}>
-            <div style={{fontSize:10,fontWeight:700,color:GOLD,marginBottom:8}}>Garantía de máquinas (1 año desde la fecha de compra)</div>
+            <div style={{fontSize:10,fontWeight:700,color:GOLD,marginBottom:8}}>Garantía de máquinas (1 año desde fecha de compra)</div>
             <div style={{display:"flex",gap:3,marginBottom:6}}>
-              {[["Vencida",dynWExp,DANGER],["0-30 días",dynWd.filter(w=>w.dl>=0&&w.dl<=30).length,DANGER],["31-90 días",dynWd.filter(w=>w.dl>30&&w.dl<=90).length,WARN],["91-180 días",dynWd.filter(w=>w.dl>90&&w.dl<=180).length,"#F97316"],["181-270 días",dynWd.filter(w=>w.dl>180&&w.dl<=270).length,STEEL],["271-365 días",dynWd.filter(w=>w.dl>270).length,OK]].map(([label,count,color],i)=>(
-                <div key={i} style={{flex:1,background:"#0F172A",borderRadius:5,padding:6,borderTop:`3px solid ${color}`}}>
-                  <div style={{fontSize:7,color:"#64748B"}}>{label}</div>
-                  <div style={{fontSize:16,fontWeight:800,color}}>{count}</div>
-                  <div style={{fontSize:7,color:"#475569"}}>transacciones</div>
-                </div>
-              ))}
-            </div>
-            <div style={{background:"#0F172A",borderRadius:4,padding:8,marginBottom:6}}>
-              <div style={{fontSize:9,fontWeight:700,color:DANGER,marginBottom:4}}>Garantías vencidas o por vencer en 90 días ({dynWExp+dynWSoon} transacciones)</div>
-              <table style={{width:"100%",borderCollapse:"collapse",fontSize:9}}>
-                <thead><tr><th style={th}>Cliente</th><th style={th}>Compra</th><th style={thr}>Máquinas</th><th style={thr}>Grupo</th><th style={thr}>Días restantes</th><th style={{...thr,width:80}}>Estado</th></tr></thead>
-                <tbody>{dynWd.filter(w=>w.dl<=90).sort((a,b)=>a.dl-b.dl).map((w,i)=>{const co=w.dl<0?DANGER:w.dl<=30?DANGER:WARN;return(
-                  <tr key={i} style={{borderBottom:"1px solid #334155"}}>
-                    <td style={td}>{w.n}</td>
-                    <td style={{...td,fontSize:8,color:"#64748B"}}>{w.d}</td>
-                    <td style={tdr}>{w.mq}</td>
-                    <td style={tdr}>G{w.g}</td>
-                    <td style={{...tdr,color:co,fontWeight:700}}>{w.dl<0?`Venció hace ${Math.abs(w.dl)} días`:`${w.dl} días`}</td>
-                    <td style={tdr}><span style={{fontSize:8,padding:"2px 5px",borderRadius:3,background:`${co}22`,color:co,fontWeight:700}}>{w.dl<0?"Vencida":w.dl<=30?"Urgente":"Próxima"}</span></td>
-                  </tr>)})}</tbody>
-              </table>
-            </div>
-          </div>
-
-          {/* ASESORÍAS */}
-          <div style={{background:"#1E293B",borderRadius:8,border:`1px solid ${STEEL}44`,padding:12}}>
-            <div style={{fontSize:10,fontWeight:700,color:STEEL,marginBottom:8}}>Asesorías activas (4 meses desde la primera compra con asesoría)</div>
-            <div style={{display:"flex",gap:3,marginBottom:6}}>
-              {[["Vence hoy o mañana",dynAd.filter(a=>a.dl>=0&&a.dl<=1).length,DANGER],["1-30 días",dynAd.filter(a=>a.dl>1&&a.dl<=30).length,WARN],["31-60 días",dynAd.filter(a=>a.dl>30&&a.dl<=60).length,"#F97316"],["61-90 días",dynAd.filter(a=>a.dl>60&&a.dl<=90).length,STEEL],["Más de 90 días",dynAd.filter(a=>a.dl>90).length,OK]].map(([label,count,color],i)=>(
+              {[["Vencida",dynWExp,DANGER],["0-30d",dynWd.filter(w=>w.dl>=0&&w.dl<=30).length,DANGER],["31-90d",dynWd.filter(w=>w.dl>30&&w.dl<=90).length,WARN],["91-180d",dynWd.filter(w=>w.dl>90&&w.dl<=180).length,"#F97316"],["181-270d",dynWd.filter(w=>w.dl>180&&w.dl<=270).length,STEEL],["271-365d",dynWd.filter(w=>w.dl>270).length,OK]].map(([label,count,color],i)=>(
                 <div key={i} style={{flex:1,background:"#0F172A",borderRadius:5,padding:6,borderTop:`3px solid ${color}`}}>
                   <div style={{fontSize:7,color:"#64748B"}}>{label}</div>
                   <div style={{fontSize:16,fontWeight:800,color}}>{count}</div>
@@ -1050,30 +1114,49 @@ export default function Dashboard(){
               ))}
             </div>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:9}}>
-              <thead><tr><th style={th}>Cliente</th><th style={thr}>Días restantes</th><th style={{...thr,width:100}}>Estado</th><th style={{...thr,width:80}}></th></tr></thead>
-              <tbody>{dynAd.filter(a=>a.dl>=0).sort((a,b)=>a.dl-b.dl).map((a,i)=>{const co=a.dl<=1?DANGER:a.dl<=30?WARN:a.dl<=60?"#F97316":a.dl<=90?STEEL:OK;return(
+              <thead><tr style={{background:"#0F172A"}}><th style={th}>Cliente</th><th style={thr}>F. compra</th><th style={thr}>Días rest.</th><th style={thr}>Estado</th></tr></thead>
+              <tbody>{dynWd.filter(w=>w.dl>=0&&w.dl<=90).sort((a,b)=>a.dl-b.dl).map((w,i)=>{const co=w.dl<=30?DANGER:w.dl<=60?WARN:"#F97316";return(
                 <tr key={i} style={{borderBottom:"1px solid #334155"}}>
-                  <td style={td}>{a.n}</td>
-                  <td style={{...tdr,color:co,fontWeight:700}}>{a.dl===0?"Hoy":a.dl===1?"Mañana":`${a.dl} días`}</td>
+                  <td style={td}>{w.n}</td><td style={{...tdr,fontSize:8,color:"#94A3B8"}}>{w.d}</td>
+                  <td style={{...tdr,fontWeight:700,color:co}}>{w.dl}d</td>
+                  <td style={tdr}><span style={{fontSize:8,padding:"2px 5px",borderRadius:3,background:`${co}22`,color:co,fontWeight:700}}>{w.dl<=30?"Urgente":w.dl<=60?"Próxima":"En curso"}</span></td>
+                </tr>);})}</tbody>
+            </table>
+          </div>
+          <div style={{background:"#1E293B",borderRadius:8,border:`1px solid ${STEEL}44`,padding:12}}>
+            <div style={{fontSize:10,fontWeight:700,color:STEEL,marginBottom:8}}>Asesorías activas — 4 meses desde inicio · clic en umbral para ver clientes</div>
+            <div style={{display:"flex",gap:3,marginBottom:8}}>
+              {[["Vence hoy/mañana",dynAd.filter(a=>a.dl>=0&&a.dl<=1),DANGER,"vence"],["1-30 días",dynAd.filter(a=>a.dl>1&&a.dl<=30),WARN,"30"],["31-60 días",dynAd.filter(a=>a.dl>30&&a.dl<=60),"#F97316","60"],["61-90 días",dynAd.filter(a=>a.dl>60&&a.dl<=90),STEEL,"90"],["Más de 90 días",dynAd.filter(a=>a.dl>90),OK,"90+"]].map(([label,list,color,key],i)=>(
+                <div key={i} onClick={()=>setGarantiaUmbral(garantiaUmbral===key?null:key)} style={{flex:1,background:garantiaUmbral===key?`${color}22`:"#0F172A",borderRadius:5,padding:6,borderTop:`3px solid ${color}`,cursor:"pointer"}}>
+                  <div style={{fontSize:7,color:"#64748B"}}>{label}</div>
+                  <div style={{fontSize:16,fontWeight:800,color}}>{list.length}</div>
+                  <div style={{fontSize:7,color:garantiaUmbral===key?color:"#475569"}}>{garantiaUmbral===key?"▲ ocultar":"▼ ver"}</div>
+                </div>
+              ))}
+            </div>
+            {garantiaUmbral&&<UmbralPanel dynAd={dynAd} umbral={garantiaUmbral} overrides={asesoriaOverrides} setOverrides={setAsesoriaOverrides} editId={editId} setEditId={setEditId}/>}
+            <table style={{width:"100%",borderCollapse:"collapse",fontSize:9}}>
+              <thead><tr style={{background:"#0F172A"}}><th style={th}>Cliente</th><th style={th}>F. inicio</th><th style={thr}>Días rest.</th><th style={thr}>Estado</th><th style={{...thr,width:60}}></th></tr></thead>
+              <tbody>{dynAd.filter(a=>a.dl>=0).sort((a,b)=>a.dl-b.dl).map((a,i)=>{
+                const co=a.dl<=1?DANGER:a.dl<=30?WARN:a.dl<=60?"#F97316":a.dl<=90?STEEL:OK;
+                return(<tr key={i} style={{borderBottom:"1px solid #334155"}}>
+                  <td style={{...td,fontWeight:600}}>{a.n}</td>
+                  <td style={{...td,fontSize:8,color:asesoriaOverrides[a.k]?GOLD:"#94A3B8"}}>{a.fechaInicio}{asesoriaOverrides[a.k]&&<span style={{fontSize:6,marginLeft:3,color:GOLD}}>✎</span>}</td>
+                  <td style={{...tdr,fontWeight:700,color:co}}>{a.dl===0?"Hoy":a.dl===1?"Mañana":`${a.dl}d`}</td>
                   <td style={tdr}><span style={{fontSize:8,padding:"2px 5px",borderRadius:3,background:`${co}22`,color:co,fontWeight:700}}>{a.dl<=1?"Vence hoy":a.dl<=30?"Urgente":a.dl<=60?"Próxima":a.dl<=90?"En curso":"Holgada"}</span></td>
                   <td style={tdr}><Bar v={Math.max(0,120-a.dl)} mx={120} co={co}/></td>
-                </tr>)})}</tbody>
+                </tr>);
+              })}</tbody>
             </table>
-            <div style={{marginTop:8,background:"#0F172A",borderRadius:4,padding:8}}>
-              <div style={{fontSize:9,color:"#94A3B8",lineHeight:1.6}}>
-                <strong style={{color:WARN}}>Nota:</strong> La asesoría se calcula desde la fecha de la primera compra del cliente, no por unidad de máquina. Si un cliente compró su primera máquina con asesoría en agosto y luego compró otra en diciembre, la asesoría sigue venciendo 4 meses después de agosto (diciembre), no 4 meses después de la segunda compra. Hay 40 asesorías ya vencidas y 32 activas.
-              </div>
-            </div>
           </div>
         </>}
 
-        {/* POSICIÓN ACTUAL */}
-        {tab==="Posición actual"&&(
+{tab==="Money Tracker"&&(
             <>
               <div style={{display:"flex",gap:4,marginBottom:8,flexWrap:"wrap"}}>
                 <K l="Total consolidado" v={posFD(posTotalDOP)} co={GOLD} s={`~${posFU(posTotalUSD)} USD`}/>
                 <K l="Cash limpio" v={posFD(posCleanCash)} co={OK} s={`~${posFU(posCleanUSD)} USD (sin CxC)`}/>
-                <K l="CxC dinámica" v={posFD(posCxcDOP)} co={WARN} s={`${clients.filter(c=>c.vta-c.pag>0).length} clientes`}/>
+                <K l="CxC dinámica" v={posFD(posCxcDOP)} co={WARN} s={`${clientsRetro.filter(c=>c.vta-c.pag>0).length} clientes`}/>
                 <K l="Meta 2026" v="RD$61.5M" co={GOLD} s={`${posProjPct.toFixed(1)}% alcanzado`}/>
               </div>
               <div style={{background:"#1E293B",borderRadius:8,padding:"8px 12px",marginBottom:8,border:"1px solid #334155"}}>
@@ -1153,49 +1236,68 @@ export default function Dashboard(){
         )}
 
         {/* SUGERENCIAS */}
-        {tab==="Sugerencias"&&<>
-          <div style={{fontSize:9,fontWeight:700,letterSpacing:2,color:GOLD,marginBottom:8}}>Sugerencias basadas en la data ({sug.length})</div>
-          <div style={{display:"flex",flexDirection:"column",gap:6}}>
-            {sug.map((s,i)=>(<div key={i} style={{background:"#1E293B",borderRadius:6,borderLeft:`4px solid ${s.co}`,padding:"10px 12px",border:"1px solid #334155"}}>
-              <span style={{fontSize:8,fontWeight:700,padding:"2px 5px",borderRadius:2,background:`${s.co}22`,color:s.co}}>{s.c}</span>
-              <div style={{fontSize:11,fontWeight:700,color:"#fff",marginTop:4,lineHeight:1.4}}>{s.t}</div>
-              <div style={{fontSize:10,color:"#94A3B8",marginTop:3,lineHeight:1.6}}>{s.d}</div>
-            </div>))}
-          </div>
-        </>}
-
-        {/* GUÍA */}
+                {/* GUÍA */}
         {tab==="Guía"&&<>
-          <div style={{fontSize:10,fontWeight:700,letterSpacing:2,color:GOLD,marginBottom:10}}>Guía para mantener el dashboard actualizado</div>
-          <Inf color={BLUE}>
-            <div style={{fontSize:11,fontWeight:700,color:"#fff",marginBottom:6}}>1. Qué actualizar y cuándo</div>
+          <div style={{fontSize:10,fontWeight:700,letterSpacing:2,color:GOLD,marginBottom:10}}>Manual operativo del dashboard</div>
+          <Inf color={OK}>
+            <div style={{fontSize:11,fontWeight:700,color:OK,marginBottom:6}}>REGISTRAR UNA VENTA NUEVA</div>
             <div style={{fontSize:10,color:"#CBD5E1",lineHeight:1.8}}>
-              <strong style={{color:OK}}>Cada venta nueva:</strong> Agregar una línea al array del año correspondiente con: mes, máquinas, asesorías, revenue de máquinas, revenue de asesorías, monto cobrado, costo de mercancía y gastos fijos del mes.<br/><br/>
-              <strong style={{color:OK}}>Cada cobro:</strong> Actualizar el campo de cobrado del mes correspondiente. Si el pago cierra una cuenta pendiente, eliminar esa línea del listado de cuentas por cobrar.<br/><br/>
-              <strong style={{color:OK}}>Cliente recurrente:</strong> Cuando un cliente compre de nuevo, actualizar su línea en el listado de clientes recurrentes sumando la nueva compra y máquinas.
+              1. Ir al tab <strong style={{color:"#fff"}}>Registro de Ventas</strong><br/>
+              2. Presionar <strong style={{color:OK}}>+ Nuevo Cliente</strong><br/>
+              3. Llenar los campos obligatorios (marcados con *):<br/>
+              &nbsp;&nbsp;• <strong style={{color:DANGER}}>Cédula/RNC</strong> — sin este campo NO se puede guardar<br/>
+              &nbsp;&nbsp;• <strong>Nombre completo</strong> del cliente<br/>
+              &nbsp;&nbsp;• <strong>Fecha de compra</strong> — usar la fecha real de cierre<br/>
+              4. Llenar los campos de venta: máquinas, asesorías, monto, pagado<br/>
+              5. Si el cliente fue referido, escribir el nombre del referidor en <strong style={{color:BLUE}}>Referido por</strong><br/>
+              6. Presionar <strong style={{color:OK}}>Guardar registro</strong><br/><br/>
+              <strong style={{color:WARN}}>Al guardar se actualiza automáticamente:</strong> Cobros pendientes (si hay saldo), Garantías, Valor del cliente (si es recurrente), Posición actual, tab 2026, inventario disponible, y referidos.
             </div>
           </Inf>
           <Inf color={BLUE}>
-            <div style={{fontSize:11,fontWeight:700,color:"#fff",marginBottom:6}}>2. Cómo actualizarlo</div>
+            <div style={{fontSize:11,fontWeight:700,color:BLUE,marginBottom:6}}>REGISTRAR UN COBRO / ABONO</div>
             <div style={{fontSize:10,color:"#CBD5E1",lineHeight:1.8}}>
-              <strong style={{color:WARN}}>Opción rápida:</strong> Abrir el archivo .jsx en un editor de texto, buscar el array correspondiente, agregar o modificar la línea y guardar. El dashboard se actualiza automáticamente al renderizar.<br/><br/>
-              <strong style={{color:OK}}>Opción recomendada:</strong> Pegarle los datos nuevos a Claude en texto plano y pedirle que actualice el dashboard. Por ejemplo:<br/>
-              <div style={{background:"#1E293B",padding:"6px 10px",borderRadius:4,margin:"6px 0",fontSize:10,lineHeight:1.6,color:"#94A3B8"}}>
-                "Actualiza el dashboard: abril de 2026 cerró con 14 máquinas y 8 asesorías. Se cobraron $95,000. Rodrigo pagó $5,000 de su deuda. Se entregó el grupo 7 el 4 de abril."
-              </div>
-              Claude actualizará todos los datos automáticamente.<br/><br/>
-              <strong style={{color:STEEL}}>Frecuencia sugerida:</strong> Mínimo una vez por semana (viernes) para cobros y ventas. Las entregas se registran cuando suceden.
+              1. Ir al tab <strong style={{color:"#fff"}}>Registro de Ventas</strong><br/>
+              2. Buscar al cliente con los filtros o haciendo scroll<br/>
+              3. Presionar <strong>Editar</strong> en la fila del cliente<br/>
+              4. Modificar el campo <strong style={{color:GOLD}}>Pagado</strong> sumando el abono nuevo al monto anterior<br/>
+              5. Presionar <strong style={{color:OK}}>OK</strong><br/><br/>
+              <strong style={{color:DANGER}}>NO crear un registro nuevo para un abono.</strong> El abono se registra editando el campo Pagado del registro existente. Crear un registro nuevo duplica la venta.
             </div>
           </Inf>
           <Inf color={WARN}>
-            <div style={{fontSize:11,fontWeight:700,color:WARN,marginBottom:6}}>Cuidado con los duplicados en cobranza</div>
+            <div style={{fontSize:11,fontWeight:700,color:WARN,marginBottom:6}}>ERRORES COMUNES A EVITAR</div>
             <div style={{fontSize:10,color:"#CBD5E1",lineHeight:1.8}}>
-              Cuando un cliente hace pagos parciales (abonos), cada abono aparece como una línea separada en el registro de cobranza. Esto <strong>no es una venta nueva</strong>. Solo se debe actualizar el monto cobrado del mes y reducir el saldo pendiente del cliente.<br/><br/>
-              <strong>Ejemplo:</strong> Rodrigo debe $8,300. Si paga $3,000 hoy, lo correcto es:<br/>
-              → Sumar $5,000 al cobrado del mes de marzo<br/>
-              → Cambiar la deuda de Rodrigo de $8,300 a $5,300<br/>
-              → No agregar una nueva línea de venta<br/><br/>
-              <strong style={{color:DANGER}}>Ya se identificaron 9 pagos parciales en 2025</strong> que podrían haberse contado dos veces. Siempre verificar si un registro de pago corresponde a una factura nueva o a un abono sobre una factura existente.
+              <strong style={{color:DANGER}}>1. Registrar un abono como venta nueva</strong> — infla el revenue y crea un cliente fantasma. Los abonos se registran editando el campo Pagado.<br/><br/>
+              <strong style={{color:DANGER}}>2. Dejar la cédula vacía</strong> — sin cédula el sistema no detecta clientes recurrentes. Aparece "REQUERIDO" en rojo como alerta.<br/><br/>
+              <strong style={{color:DANGER}}>3. Poner el monto en pesos en el campo de USD</strong> — los campos de Venta y Pagado son en USD. Si el cliente pagó en pesos, convertir a USD antes de registrar.<br/><br/>
+              <strong style={{color:DANGER}}>4. No registrar fecha de entrega</strong> — editar el registro cuando se entregue la máquina para llenar la fecha de entrega. Esto alimenta el cálculo de días hábiles.<br/><br/>
+              <strong style={{color:WARN}}>5. Confundir tipo de compra</strong> — si el cliente compró máquina + asesoría, poner asesorías = 1 (o más). El tipo de compra se calcula automáticamente.
+            </div>
+          </Inf>
+          <Inf color={STEEL}>
+            <div style={{fontSize:11,fontWeight:700,color:STEEL,marginBottom:6}}>REGISTRAR UN GASTO</div>
+            <div style={{fontSize:10,color:"#CBD5E1",lineHeight:1.8}}>
+              1. Ir al tab <strong style={{color:"#fff"}}>Gastos</strong> (solo visible para Admin)<br/>
+              2. Presionar <strong style={{color:OK}}>+ Nuevo gasto</strong><br/>
+              3. Seleccionar categoría, escribir concepto, monto en RD$, y mes<br/>
+              4. Guardar — se refleja automáticamente en el OPEX del tab 2026
+            </div>
+          </Inf>
+          <Inf color={GOLD}>
+            <div style={{fontSize:11,fontWeight:700,color:GOLD,marginBottom:6}}>REFERIDOS</div>
+            <div style={{fontSize:10,color:"#CBD5E1",lineHeight:1.8}}>
+              Al registrar un cliente nuevo, si fue referido por alguien, escribir el nombre del referidor en el campo <strong style={{color:BLUE}}>Referido por</strong>. Esto actualiza automáticamente el tab de Referidos con el conteo y revenue generado por cada referidor.<br/><br/>
+              <strong style={{color:WARN}}>Importante:</strong> Usar siempre el mismo nombre para el mismo referidor (ej: siempre "Vinicio Dominguez", no a veces "Vinicio" y a veces "Vinicio D."). La consistencia del nombre es lo que agrupa los referidos correctamente.
+            </div>
+          </Inf>
+          <Inf color={DANGER}>
+            <div style={{fontSize:11,fontWeight:700,color:DANGER,marginBottom:6}}>QUÉ NO TOCAR</div>
+            <div style={{fontSize:10,color:"#CBD5E1",lineHeight:1.8}}>
+              • <strong>No editar registros de 2025</strong> sin autorización — son datos históricos cerrados<br/>
+              • <strong>No borrar registros</strong> — si hay un error, editarlo, no eliminarlo<br/>
+              • <strong>No cambiar la tasa de cambio</strong> sin autorización — afecta todos los cálculos del dashboard<br/>
+              • <strong>Los datos se guardan automáticamente</strong> — cualquier cambio persiste al recargar la página
             </div>
           </Inf>
         </>}
